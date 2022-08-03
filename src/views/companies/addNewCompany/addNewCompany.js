@@ -117,7 +117,7 @@ const AddNewCompany = () => {
       setVisible(10)
       if (response.success) {
         await setVisible(6)
-        setSuccessAdd("تم اضافة شركة بنجاح")
+        setSuccessAdd("Company added successfully.")
 
 
         setUpData({
@@ -169,7 +169,7 @@ const AddNewCompany = () => {
             <CRow className=" row-gap-15">
 
               <CCol md="6" lg="6" xl="6" className="justify-content-center align-self-center align-items-center place-items-center text-capitalize">
-                <strong>إضافة شركة جديدة</strong>
+                <strong>Add New Company</strong>
               </CCol>
             </CRow>
           </CCardHeader>
@@ -182,7 +182,7 @@ const AddNewCompany = () => {
                     <CCardBody>
                       <CRow >
                         <CCol md='12'> <strong>
-                          {"معلومات الشركة :"}
+                          {"Company Information:"}
                         </strong></CCol>
 
                         {/* className="justify-content-center" */}
@@ -191,7 +191,7 @@ const AddNewCompany = () => {
                           <CFormGroup row>
                             <CCol md="12">
                               <CLabel htmlFor="text-input">
-                                {"الاسم الانكليزي"}
+                                {"English Name"}
                               </CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
@@ -199,7 +199,7 @@ const AddNewCompany = () => {
                               <CInput name="name_en"
                                 required
                                 onChange={handleData}
-                                placeholder={"الاسم الانكليزي"}
+                                placeholder={"English Name"}
                                 value={upData.name_en} />
                             </CCol>
                           </CFormGroup>
@@ -209,7 +209,7 @@ const AddNewCompany = () => {
                         <CCol md="6" lg="6">
                           <CFormGroup row className='arabic-align'>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">الاسم العربي</CLabel>
+                              <CLabel htmlFor="text-input"></CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
@@ -217,7 +217,7 @@ const AddNewCompany = () => {
                               <CInput name="name_ar" required
                                 onChange={handleData}
 
-                                placeholder="الاسم العربي" value={upData.name_ar} />
+                                placeholder="Arabic Name" value={upData.name_ar} />
 
 
                             </CCol>
@@ -288,7 +288,7 @@ const AddNewCompany = () => {
 
                         <CCol md="6" lg="6" xl="6" xs="12" sm="12" >
                           {<CButton color="success" block type='submit'>
-                            حفظ
+                            Save
                             {loading && <>{' '}<i className="fa fa-spinner fa-spin" ></i></>} </CButton>}
                         </CCol>
 

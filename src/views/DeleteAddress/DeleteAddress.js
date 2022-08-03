@@ -76,12 +76,12 @@ const DeleteAddress = ({ openModal, closeModal, id, refreshParent, userID }) => 
                 <CModalTitle></CModalTitle>
             </CModalHeader>
             <CModalBody>
-                هل انت متأكد أنك تريد حذف عنوان
+                Are You Sure Want To Delete Address
 
             </CModalBody>
             <CModalFooter>
-                <CButton color="danger" onClick={() => handleDelete()}>حذف</CButton>{' '}
-                <CButton color="secondary" onClick={() => closeModal()}>الغاء</CButton>
+                <CButton color="danger" onClick={() => handleDelete()}>Delete</CButton>{' '}
+                <CButton color="secondary" onClick={() => closeModal()}>Cancel</CButton>
             </CModalFooter>
         </CModal>
 

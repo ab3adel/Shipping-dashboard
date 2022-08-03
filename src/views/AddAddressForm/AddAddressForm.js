@@ -304,7 +304,7 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                             area: "", Block: "", jaddah: "", street: "", building: "", floor: "", flat: "",
                             PCAIID: "", recipient_name_en: "", recipient_name_ar: "", recipient_phone: "", email: "",
                         })
-                        setSuccessAdd("تم اضافة عنوان ارسال")
+                        setSuccessAdd("Sending address added.")
                     }
                     if (type === 'recipient') {
                         setData({
@@ -313,7 +313,7 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                             area: "", Block: "", jaddah: "", street: "", building: "", floor: "", flat: "",
                             PCAIID: "", recipient_name_en: "", recipient_name_ar: "", recipient_phone: "", email: "",
                         })
-                        setSuccessAdd("تم اضافة مرسل إليه")
+                        setSuccessAdd("Recipient has been added")
                     }
                     if (type === 'recipientAddress') {
                         setData({
@@ -322,14 +322,14 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                             area: "", Block: "", jaddah: "", street: "", building: "", floor: "", flat: "",
                             PCAIID: "", recipient_name_en: "", recipient_name_ar: "", recipient_phone: "", email: "",
                         })
-                        setSuccessAdd("تم اضافة عنوان للمرسل إليه")
+                        setSuccessAdd("Address to the Recipient has been added")
                     }
 
                 }
                 else if (status === "update") {
-                    if (type === 'sendAddress') { setSuccessAdd("تم تعديل عنوان ارسال") }
-                    if (type === 'recipientAddress') { setSuccessAdd("تم تعديل عنوان استلام") }
-                    if (type === 'recipient') { setSuccessAdd("تم تعديل معلومات مرسل اليه") }
+                    if (type === 'sendAddress') { setSuccessAdd("Sending address has been modified.") }
+                    if (type === 'recipientAddress') { setSuccessAdd("Recipient address has been modified") }
+                    if (type === 'recipient') { setSuccessAdd("Recipient information has been modified") }
 
                 }
                 closeModal()
@@ -380,7 +380,7 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                 <CCol md="6" lg="6" xl="6">
                                     <CFormGroup row>
                                         <CCol md="12">
-                                            <CLabel htmlFor="text-input">   الاسم العربي   </CLabel>
+                                            <CLabel htmlFor="text-input">Arabic Name</CLabel>
                                         </CCol>
                                         <CCol xs="12" md="12">
 
@@ -388,7 +388,7 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                                 required
                                                 autoComplete='off'
                                                 onChange={(e) => handleAddressData(e)}
-                                                placeholder='الاسم العربي'
+                                                placeholder='Arabic Name'
                                                 value={data.recipient_name_ar} />
                                         </CCol>
                                     </CFormGroup>
@@ -396,7 +396,7 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                 <CCol md="6" lg="6" xl="6">
                                     <CFormGroup row>
                                         <CCol md="12">
-                                            <CLabel htmlFor="text-input">   الاسم الانكليزي   </CLabel>
+                                            <CLabel htmlFor="text-input">   English Name      </CLabel>
                                         </CCol>
                                         <CCol xs="12" md="12">
 
@@ -404,7 +404,7 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                                 required
                                                 autoComplete='off'
                                                 onChange={(e) => handleAddressData(e)}
-                                                placeholder='الاسم الانكليزي'
+                                                placeholder='English Name'
                                                 value={data.recipient_name_en} />
                                         </CCol>
                                     </CFormGroup>
@@ -412,7 +412,7 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                 <CCol md="6" lg="6" xl="6">
                                     <CFormGroup row>
                                         <CCol md="12">
-                                            <CLabel htmlFor="text-input">  هاتف  </CLabel>
+                                            <CLabel htmlFor="text-input">  Phone  </CLabel>
                                         </CCol>
                                         <CCol xs="12" md="12">
 
@@ -420,7 +420,7 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                                 required
                                                 autoComplete='off'
                                                 onChange={(e) => handleAddressData(e)}
-                                                placeholder='هاتف'
+                                                placeholder='Phone'
                                                 value={data.recipient_phone} />
                                         </CCol>
                                     </CFormGroup>
@@ -428,7 +428,7 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                 <CCol md="6" lg="6" xl="6">
                                     <CFormGroup row>
                                         <CCol md="12">
-                                            <CLabel htmlFor="text-input">  البريد الالكتروني </CLabel>
+                                            <CLabel htmlFor="text-input">   Email   </CLabel>
                                         </CCol>
                                         <CCol xs="12" md="12">
 
@@ -436,7 +436,7 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                                 required
                                                 autoComplete='off'
                                                 onChange={(e) => handleAddressData(e)}
-                                                placeholder='البريد الالكتروني'
+                                                placeholder='Email'
                                                 value={data.email} />
                                         </CCol>
                                     </CFormGroup>
@@ -456,56 +456,56 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
 
                                     <CFormGroup row>
                                         <CCol md="12">
-                                            <CLabel htmlFor="text-input">الدولة </CLabel>
+                                            <CLabel htmlFor="text-input">Country </CLabel>
                                         </CCol>
                                         <CCol xs="12" md="12">
-                                            <CacheProvider value={cacheRtl}>
-                                                <ThemeProvider theme={theme}>
-                                                    <div dir="rtl">
-                                                        <Autocomplete
-                                                            // id="country-select-demo"
-                                                            size="small"
-                                                            autoComplete='off'
-                                                            options={countries}
-                                                            required
-                                                            autoHighlight
-                                                            dir='rtl'
-                                                            disabled={type === 'sendAddress'}
-                                                            rtl='true'
-                                                            value={data.country}
-                                                            onChange={(event, newValue) => {
-                                                                handleCountry(newValue);
-                                                            }}
-                                                            getOptionLabel={(option) => option.country_name_en + "  " + option.country_code}
-                                                            renderOption={(props, option) => (
-                                                                <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
-                                                                    <img
-                                                                        loading="lazy"
-                                                                        width="20"
-                                                                        src={`https://flagcdn.com/w20/${option.country_code.toLowerCase()}.png`}
-                                                                        srcSet={`https://flagcdn.com/w40/${option.country_code.toLowerCase()}.png 2x`}
-                                                                        alt=""
-                                                                    />
-                                                                    {option.country_name_en} ({option.country_code})
-                                                                </Box>
-                                                            )}
-                                                            renderInput={(params) => (
-                                                                <TextField
-                                                                    required
-                                                                    autoComplete="new-password"
-                                                                    {...params}
-                                                                    label={"اختر دولة"}
-                                                                    inputProps={{
-                                                                        ...params.inputProps,
-                                                                        autoComplete: 'off', // disable autocomplete and autofill
-                                                                    }}
-                                                                />
-                                                            )}
-                                                        />
+                                            {/* <CacheProvider value={cacheRtl}>
+                                                <ThemeProvider theme={theme}> */}
+                                            <div  >
+                                                <Autocomplete
+                                                    // id="country-select-demo"
+                                                    size="small"
+                                                    autoComplete='off'
+                                                    options={countries}
+                                                    required
+                                                    autoHighlight
 
-                                                    </div>
-                                                </ThemeProvider>
-                                            </CacheProvider>
+                                                    disabled={type === 'sendAddress'}
+                                                    rtl='true'
+                                                    value={data.country}
+                                                    onChange={(event, newValue) => {
+                                                        handleCountry(newValue);
+                                                    }}
+                                                    getOptionLabel={(option) => option.country_name_en + "  " + option.country_code}
+                                                    renderOption={(props, option) => (
+                                                        <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
+                                                            <img
+                                                                loading="lazy"
+                                                                width="20"
+                                                                src={`https://flagcdn.com/w20/${option.country_code.toLowerCase()}.png`}
+                                                                srcSet={`https://flagcdn.com/w40/${option.country_code.toLowerCase()}.png 2x`}
+                                                                alt=""
+                                                            />
+                                                            {option.country_name_en} ({option.country_code})
+                                                        </Box>
+                                                    )}
+                                                    renderInput={(params) => (
+                                                        <TextField
+                                                            required
+                                                            autoComplete="new-password"
+                                                            {...params}
+                                                            label={"Select Country"}
+                                                            inputProps={{
+                                                                ...params.inputProps,
+                                                                autoComplete: 'off', // disable autocomplete and autofill
+                                                            }}
+                                                        />
+                                                    )}
+                                                />
+
+                                            </div>
+                                            {/* </ThemeProvider>
+                                            </CacheProvider> */}
                                         </CCol>
                                     </CFormGroup>
 
@@ -514,43 +514,42 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
 
                                     <CFormGroup row>
                                         <CCol md="12">
-                                            <CLabel htmlFor="text-input">المدينة </CLabel>
+                                            <CLabel htmlFor="text-input">City </CLabel>
                                         </CCol>
                                         <CCol xs="12" md="12">
-                                            <CacheProvider value={cacheRtl}>
-                                                <ThemeProvider theme={theme}>
-                                                    <div dir="rtl">
-                                                        <Autocomplete
-                                                            id="country-select-demo"
-                                                            size="small"
-                                                            options={cities}
-                                                            autoComplete='off'
-                                                            autoHighlight
-                                                            dir='rtl'
-                                                            rtl='true'
-                                                            value={data.city}
-                                                            onChange={(event, newValue) => {
-                                                                handleCity(newValue);
+                                            {/* <CacheProvider value={cacheRtl}>
+                                                <ThemeProvider theme={theme}> */}
+                                            <div  >
+                                                <Autocomplete
+                                                    id="country-select-demo"
+                                                    size="small"
+                                                    options={cities}
+                                                    autoComplete='off'
+                                                    autoHighlight
+
+                                                    value={data.city}
+                                                    onChange={(event, newValue) => {
+                                                        handleCity(newValue);
+                                                    }}
+                                                    getOptionLabel={(option) => option.name_en}
+
+                                                    renderInput={(params) => (
+                                                        <TextField
+                                                            required
+                                                            autoComplete="new-password"
+                                                            {...params}
+                                                            label={"Select City"}
+                                                            inputProps={{
+                                                                ...params.inputProps,
+                                                                autoComplete: "new-password", // disable autocomplete and autofill
                                                             }}
-                                                            getOptionLabel={(option) => option.name_en}
-
-                                                            renderInput={(params) => (
-                                                                <TextField
-                                                                    required
-                                                                    autoComplete="new-password"
-                                                                    {...params}
-                                                                    label={"اختر مدينة"}
-                                                                    inputProps={{
-                                                                        ...params.inputProps,
-                                                                        autoComplete: "new-password", // disable autocomplete and autofill
-                                                                    }}
-                                                                />
-                                                            )}
                                                         />
+                                                    )}
+                                                />
 
-                                                    </div>
-                                                </ThemeProvider>
-                                            </CacheProvider>
+                                            </div>
+                                            {/* </ThemeProvider>
+                                            </CacheProvider> */}
 
 
 
@@ -564,7 +563,7 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                         <CCol md="6" lg="4" xl="4">
                                             <CFormGroup row>
                                                 <CCol md="12">
-                                                    <CLabel htmlFor="text-input">   المنطقة   </CLabel>
+                                                    <CLabel htmlFor="text-input">   Area   </CLabel>
                                                 </CCol>
                                                 <CCol xs="12" md="12">
 
@@ -573,7 +572,7 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
 
                                                         autoComplete='off'
                                                         onChange={(e) => handleAddressData(e)}
-                                                        placeholder='المنطقة'
+                                                        placeholder='Area'
                                                         value={data.area} />
                                                 </CCol>
                                             </CFormGroup>
@@ -581,14 +580,14 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                         <CCol md="6" lg="4" xl="4">
                                             <CFormGroup row>
                                                 <CCol md="12">
-                                                    <CLabel htmlFor="text-input">   القطعة   </CLabel>
+                                                    <CLabel htmlFor="text-input">   Block   </CLabel>
                                                 </CCol>
                                                 <CCol xs="12" md="12">
 
                                                     <CInput name="Block"
                                                         required autoComplete='off'
                                                         onChange={(e) => handleAddressData(e)}
-                                                        placeholder='القطعة'
+                                                        placeholder='Block'
                                                         value={data.Block} />
                                                 </CCol>
                                             </CFormGroup>
@@ -596,13 +595,13 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                         <CCol md="6" lg="4" xl="4">
                                             <CFormGroup row>
                                                 <CCol md="12">
-                                                    <CLabel htmlFor="text-input">   الجادة   </CLabel>
+                                                    <CLabel htmlFor="text-input">   Jaddah   </CLabel>
                                                 </CCol>
                                                 <CCol xs="12" md="12">
 
                                                     <CInput name="jaddah" autoComplete='off'
                                                         onChange={(e) => handleAddressData(e)}
-                                                        placeholder='الجادة'
+                                                        placeholder='Jaddah'
                                                         value={data.jaddah} />
                                                 </CCol>
                                             </CFormGroup>
@@ -610,14 +609,14 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                         <CCol md="6" lg="4" xl="4">
                                             <CFormGroup row>
                                                 <CCol md="12">
-                                                    <CLabel htmlFor="text-input">الشارع</CLabel>
+                                                    <CLabel htmlFor="text-input">Street</CLabel>
                                                 </CCol>
                                                 <CCol xs="12" md="12">
 
                                                     <CInput name="street"
                                                         required autoComplete='off'
                                                         onChange={(e) => handleAddressData(e)}
-                                                        placeholder='الشارع'
+                                                        placeholder='Street'
                                                         value={data.street} />
                                                 </CCol>
                                             </CFormGroup>
@@ -625,14 +624,14 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                         <CCol md="6" lg="4" xl="4">
                                             <CFormGroup row>
                                                 <CCol md="12">
-                                                    <CLabel htmlFor="text-input">البناء</CLabel>
+                                                    <CLabel htmlFor="text-input">Building</CLabel>
                                                 </CCol>
                                                 <CCol xs="12" md="12">
 
                                                     <CInput name="building"
                                                         required autoComplete='off'
                                                         onChange={(e) => handleAddressData(e)}
-                                                        placeholder='البناء'
+                                                        placeholder='Building'
                                                         value={data.building} />
                                                 </CCol>
                                             </CFormGroup>
@@ -640,14 +639,14 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                         <CCol md="6" lg="2" xl="2">
                                             <CFormGroup row>
                                                 <CCol md="12">
-                                                    <CLabel htmlFor="text-input">الطابق</CLabel>
+                                                    <CLabel htmlFor="text-input">Floor</CLabel>
                                                 </CCol>
                                                 <CCol xs="12" md="12">
 
                                                     <CInput name="floor"
                                                         autoComplete='off'
                                                         onChange={(e) => handleAddressData(e)}
-                                                        placeholder='الطابق'
+                                                        placeholder='Floor'
                                                         value={data.floor} />
                                                 </CCol>
                                             </CFormGroup>
@@ -655,14 +654,14 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                         <CCol md="6" lg="2" xl="2">
                                             <CFormGroup row>
                                                 <CCol md="12">
-                                                    <CLabel htmlFor="text-input">الشقة</CLabel>
+                                                    <CLabel htmlFor="text-input">Flat</CLabel>
                                                 </CCol>
                                                 <CCol xs="12" md="12">
 
                                                     <CInput name="flat"
                                                         autoComplete='off'
                                                         onChange={(e) => handleAddressData(e)}
-                                                        placeholder='الشقة'
+                                                        placeholder='Flat'
                                                         value={data.flat} />
                                                 </CCol>
                                             </CFormGroup>
@@ -688,7 +687,7 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                         <CCol md="12" lg="4" xl="4">
                                             <CFormGroup row>
                                                 <CCol md="12">
-                                                    <CLabel htmlFor="text-input">         السطر 1    </CLabel>
+                                                    <CLabel htmlFor="text-input">            Line 1    </CLabel>
                                                 </CCol>
                                                 <CCol xs="12" md="12">
 
@@ -696,7 +695,7 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                                         required
                                                         autoComplete='off'
                                                         onChange={(e) => handleAddressData(e)}
-                                                        placeholder={`السطر 1`}
+                                                        placeholder={`Line 1`}
                                                         value={data.line_1} />
                                                 </CCol>
                                             </CFormGroup>
@@ -704,14 +703,14 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                         <CCol md="12" lg="4" xl="4">
                                             <CFormGroup row>
                                                 <CCol md="12">
-                                                    <CLabel htmlFor="text-input">   السطر 2</CLabel>
+                                                    <CLabel htmlFor="text-input">Line 2</CLabel>
                                                 </CCol>
                                                 <CCol xs="12" md="12">
 
                                                     <CInput name="line_2"
                                                         autoComplete='off'
                                                         onChange={(e) => handleAddressData(e)}
-                                                        placeholder={`السطر 2`}
+                                                        placeholder={`Line 2`}
                                                         value={data.line_2} />
                                                 </CCol>
                                             </CFormGroup>
@@ -719,14 +718,14 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                         <CCol md="12" lg="4" xl="4">
                                             <CFormGroup row>
                                                 <CCol md="12">
-                                                    <CLabel htmlFor="text-input">      السطر 3    </CLabel>
+                                                    <CLabel htmlFor="text-input">        Line 3    </CLabel>
                                                 </CCol>
                                                 <CCol xs="12" md="12">
 
                                                     <CInput name="line_3"
                                                         autoComplete='off'
                                                         onChange={(e) => handleAddressData(e)}
-                                                        placeholder={`السطر 3`}
+                                                        placeholder={`Line 3`}
                                                         value={data.line_3} />
                                                 </CCol>
                                             </CFormGroup>
@@ -734,13 +733,13 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                         <CCol md="3" lg="3" xl="3">
                                             <CFormGroup row>
                                                 <CCol md="12">
-                                                    <CLabel htmlFor="text-input">  رمز الولاية   </CLabel>
+                                                    <CLabel htmlFor="text-input">   State Code     </CLabel>
                                                 </CCol>
                                                 <CCol xs="12" md="12">
 
                                                     <CInput name="state_code"
                                                         onChange={(e) => handleAddressData(e)}
-                                                        placeholder={`رمز الولاية`}
+                                                        placeholder={`State Code`}
                                                         value={data.state_code}
                                                         required={countryDetails.stateCode}
                                                         disabled={!countryDetails.stateCode}
@@ -752,7 +751,7 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                         <CCol md="3" lg="3" xl="3">
                                             <CFormGroup row>
                                                 <CCol md="12">
-                                                    <CLabel htmlFor="text-input">الرمز البريدي  </CLabel>
+                                                    <CLabel htmlFor="text-input">   Postal Code  </CLabel>
                                                 </CCol>
                                                 <CCol xs="12" md="12">
 
@@ -760,7 +759,7 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                                                         required={countryDetails.postalCode}
                                                         disabled={!countryDetails.postalCode}
                                                         onChange={(e) => handleAddressData(e)}
-                                                        placeholder={`الرمز البريدي`}
+                                                        placeholder={`Postal Code`}
                                                         value={data.post_code} />
                                                 </CCol>
                                             </CFormGroup>
@@ -805,10 +804,10 @@ const AddAddress = ({ address, status, title, type, openModal, closeModal, id, r
                 </CModalBody>
                 <CModalFooter>
                     <CButton color="primary" type='submit' onClick={(e) => handleAddAddress(e)}>
-                        حفظ
+                        Save
                         {loading && <>{' '}<i className="fa fa-spinner fa-spin" ></i></>}
                     </CButton>{' '}
-                    <CButton color="secondary" onClick={() => closeModal()}>الغاء</CButton>
+                    <CButton color="secondary" onClick={() => closeModal()}>Cancel</CButton>
                 </CModalFooter>
             </CForm>
 

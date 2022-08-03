@@ -182,8 +182,8 @@ const AddNewUser = () => {
       setVisible(10)
       if (response.success) {
         await setVisible(6)
-        if (response.payload.admin == 0) { setSuccessAdd("تمت اضافة مستخدم بنجاح") }
-        if (response.payload.admin == 1) { setSuccessAdd("تمت اضافة مدير بنجاح") }
+        if (response.payload.admin == 0) { setSuccessAdd("User added successfully") }
+        if (response.payload.admin == 1) { setSuccessAdd("Admin added successfully") }
         setPickedImgFront('')
         setPickedImgBack('')
 
@@ -244,13 +244,13 @@ const AddNewUser = () => {
             <CRow className=" row-gap-15">
 
               <CCol md="6" lg="6" xl="6" className="justify-content-center align-self-center align-items-center place-items-center text-capitalize">
-                <strong>إضافة مستخدم جديد</strong>
+                <strong>Add New User</strong>
               </CCol>
 
               <CCol md="6" lg="6" xl="6" className='row-gap-15 col-gap-15'>
 
                 <CButton color="success" className='col-lg-6  col-md-6 col-sm-12 col-xs-12 updatebtn'
-                  onClick={() => history.goBack()} >  رجوع
+                  onClick={() => history.goBack()} >  Back
                 </CButton>
 
               </CCol>
@@ -268,18 +268,18 @@ const AddNewUser = () => {
 
                         {/* className="justify-content-center" */}
 
-                        <CCol md='12'> <strong>معلومات المستخدم</strong></CCol>
+                        <CCol md='12'> <strong>User Information</strong></CCol>
                         <CCol md="6" lg="6" xl="6">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">الاسم</CLabel>
+                              <CLabel htmlFor="text-input">Name</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
                               <CInput name="userName"
                                 required
                                 onChange={handleData}
-                                placeholder={`الاسم`}
+                                placeholder={`Name`}
                                 value={upData.userName} />
                             </CCol>
                           </CFormGroup>
@@ -287,14 +287,14 @@ const AddNewUser = () => {
                         <CCol md="6" lg="6" xl="6">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">رقم الهاتف</CLabel>
+                              <CLabel htmlFor="text-input">Phone   </CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
                               <CInput name="phone"
                                 required
                                 onChange={handleData}
-                                placeholder={`رقم الهاتف`}
+                                placeholder={`Phone`}
                                 value={upData.phone} />
                             </CCol>
                           </CFormGroup>
@@ -303,7 +303,7 @@ const AddNewUser = () => {
                         <CCol md="6" lg="6" xl="6">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">البريد الالكتروني</CLabel>
+                              <CLabel htmlFor="text-input"> Email  </CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
@@ -311,7 +311,7 @@ const AddNewUser = () => {
 
                                 type='email'
                                 onChange={handleData}
-                                placeholder={`البريد الالكتروني`}
+                                placeholder={`Email`}
                                 value={upData.email} />
                             </CCol>
                           </CFormGroup>
@@ -319,7 +319,7 @@ const AddNewUser = () => {
                         <CCol md="3" lg="3" xl="3">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">نسبة الربح (افتراضي 10%)</CLabel>
+                              <CLabel htmlFor="text-input"> Profit Percentage   ( Default 10%)</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
@@ -327,7 +327,7 @@ const AddNewUser = () => {
                                 required
                                 type='number' min='0' max='100'
                                 onChange={handleData}
-                                placeholder={`نسبة الربح`}
+                                placeholder={`Profit Percentage`}
                                 value={upData.profit_percentage} />
                             </CCol>
                           </CFormGroup>
@@ -335,7 +335,7 @@ const AddNewUser = () => {
                         <CCol md="3" lg="3" xl="3">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">قيمة ربح ثابتة مضافة(افتراضي 0)</CLabel>
+                              <CLabel htmlFor="text-input">   Fixed Profit Value (Default 0)</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
@@ -343,7 +343,7 @@ const AddNewUser = () => {
                                 required
                                 type='number' min='0'
                                 onChange={handleData}
-                                placeholder={`قيمة ثابتة مضافة`}
+                                placeholder={`Fixed Profit Value`}
                                 value={upData.fixed_profit_value} />
                             </CCol>
                           </CFormGroup>
@@ -351,14 +351,14 @@ const AddNewUser = () => {
                         <CCol md="6" lg="6" xl="6">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">{`كلمة السر`}</CLabel>
+                              <CLabel htmlFor="text-input">{`Password`}</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
                               <CInput name="password"
                                 required
                                 onChange={handleData}
-                                placeholder={`كلمة السر`}
+                                placeholder={`Password`}
                                 value={upData.password} />
                             </CCol>
                           </CFormGroup>
@@ -367,7 +367,7 @@ const AddNewUser = () => {
                           <CFormGroup row>
                             <CCol md="12">
                               <CLabel htmlFor="text-input">
-                                تأكيد كلمة السر
+                                Confirm Password
                               </CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
@@ -375,7 +375,7 @@ const AddNewUser = () => {
                               <CInput name="confirmPassword"
                                 required
                                 onChange={handleData}
-                                placeholder={`تأكيد كلمة السر`}
+                                placeholder={`Confirm Password`}
                                 value={upData.confirmPassword} />
                             </CCol>
                           </CFormGroup>
@@ -385,16 +385,16 @@ const AddNewUser = () => {
                           <CFormGroup row>
                             <CCol md="12">
                               <CLabel htmlFor="text-input">
-                                التصنيف</CLabel>
+                                Category</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
                               <CSelect custom name="category_id" id="select"
                                 required value={upData.category_id} onChange={(e) => handleData(e)}>
-                                <option value='' > اختر تصنيف</option>
+                                <option value='' >Select Category</option>
 
                                 {categories.length > 0 && categories.map((cat) => {
                                   return (<option value={cat.id} key={cat.id}>
-                                    {cat.name_ar}
+                                    {cat.name_en}
                                   </option>)
                                 })}
 
@@ -409,15 +409,15 @@ const AddNewUser = () => {
                           <CFormGroup row>
                             <CCol md="12">
                               <CLabel htmlFor="text-input">
-                                نوع الحساب </CLabel>
+                                Account Type </CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
                               <CSelect custom name="role" id="select"
                                 required value={upData.role} onChange={(e) => handleData(e)}>
-                                <option value='' >اختر</option>
+                                <option value='' >Select</option>
 
-                                <option value='1'>مدير</option>
-                                <option value='0'>مستخدم عادي</option>
+                                <option value='1'>Admin</option>
+                                <option value='0'>Normal User</option>
 
 
                               </CSelect>
@@ -431,15 +431,15 @@ const AddNewUser = () => {
                           <CFormGroup row>
                             <CCol md="12">
                               <CLabel htmlFor="text-input">
-                                حالة الحساب </CLabel>
+                                Account Status </CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
                               <CSelect custom name="active" id="select"
                                 required value={upData.active} onChange={(e) => handleData(e)}>
-                                <option value='' >اختر</option>
+                                <option value='' >Select</option>
 
-                                <option value='1'>فعال</option>
-                                <option value='0'>غير فعال</option>
+                                <option value='1'>Active</option>
+                                <option value='0'> Not Active  </option>
 
 
                               </CSelect>
@@ -449,14 +449,14 @@ const AddNewUser = () => {
                         </CCol>
                         <CCol md='6'  ><CCol md='12'  >
                           <CFormGroup row >
-                            <CLabel col md={12}> صورة الهوية (وجه امامي)</CLabel>
+                            <CLabel col md={12}> ID photo (front side)</CLabel>
                             <CCol xs="12" md="12">
                               {/* accept="image/*" */}
                               <CInputFile required custom id="custom-file-input" accept="image/*"
                                 onChange={(e) => { handleImgFront(e) }} />
 
                               <CLabel htmlFor="custom-file-input" variant="custom-file">
-                                {pickedImgFront ? pickedImgFront.name : `اختر ملف ...`}
+                                {pickedImgFront ? pickedImgFront.name : `Choose a file ...`}
 
                               </CLabel>
                             </CCol>
@@ -465,14 +465,14 @@ const AddNewUser = () => {
                         </CCol>
                         <CCol md='6'  ><CCol md='12'  >
                           <CFormGroup row >
-                            <CLabel col md={12}> صورة الهوية (وجه خلفي)</CLabel>
+                            <CLabel col md={12}>ID photo (back side)</CLabel>
                             <CCol xs="12" md="12">
                               {/* accept="image/*" */}
                               <CInputFile required custom id="custom-file-input" accept="image/*"
                                 onChange={(e) => { handleImgBack(e) }} />
 
                               <CLabel htmlFor="custom-file-input" variant="custom-file">
-                                {pickedImgBack ? pickedImgBack.name : `اختر ملف ...`}
+                                {pickedImgBack ? pickedImgBack.name : `Choose a file ...`}
 
                               </CLabel>
                             </CCol>
@@ -517,7 +517,7 @@ const AddNewUser = () => {
 
                         <CCol md="6" lg="6" xl="6" xs="12" sm="12" >
                           {<CButton color="success" block type='submit'>
-                            حفظ
+                            Save
                             {loading && <>{' '}<i className="fa fa-spinner fa-spin" ></i></>} </CButton>}
                         </CCol>
 

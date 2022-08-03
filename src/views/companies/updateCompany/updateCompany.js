@@ -304,7 +304,7 @@ const UpdateCompany = ({ setPageStatus, updatefetchedData, refresh, setRefresh }
                         <CCol md="6" lg="6">
                           <CFormGroup row className='arabic-align'>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">الاسم العربي</CLabel>
+                              <CLabel htmlFor="text-input">Arabic Name</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
@@ -312,7 +312,7 @@ const UpdateCompany = ({ setPageStatus, updatefetchedData, refresh, setRefresh }
                               <CInput name="name_ar" required
                                 onChange={handleData}
 
-                                placeholder="الاسم العربي" value={upData.name_ar} />
+                                placeholder="Arabic Name" value={upData.name_ar} />
 
 
                             </CCol>

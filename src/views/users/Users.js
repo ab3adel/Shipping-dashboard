@@ -99,7 +99,7 @@ const Users = () => {
               ...item,
 
               الاسم: item.name,
-              الحالة: item.active == 1 ? "فعال" : "غير فعال",
+              الحالة: item.active == 1 ? "Active" : "Not Active",
               "البريد الالكتروني": item.email ? item.email : "-",
               "نوع الحساب": item.admin,
 
@@ -320,12 +320,12 @@ const Users = () => {
   }
 
   const openAddAddress = () => {
-    setAddressDetailsModal({ id: "", open: true, type: "sendAddress", status: "new", title: "إضافة عنوان ارسال", address: "" })
+    setAddressDetailsModal({ id: "", open: true, type: "sendAddress", status: "new", title: "Add New Sender Address", address: "" })
   }
   const openUpdateAddress = (address) => {
     setAddressDetailsModal({
       id: address.id, open: true, type: "sendAddress",
-      status: "update", title: "تعديل عنوان ارسال", address: address
+      status: "update", title: "Update Send Address", address: address
     })
   }
   const CloseAddAddressModal = () => {
@@ -346,13 +346,13 @@ const Users = () => {
               <CRow className=" row-gap-15">
 
                 <CCol md="6" lg="6" xl="6" className="justify-content-center align-self-center align-items-center place-items-center text-capitalize">
-                  <strong>المستخدمين</strong>
+                  <strong>Users</strong>
                 </CCol>
 
                 <CCol md="6" lg="6" xl="6" className='row-gap-15 col-gap-15'>
 
                   <CButton color="success" className='col-lg-6  col-md-6 col-sm-12 col-xs-12 updatebtn'
-                    onClick={() => history.push('/users/AddNewUser')} >  إضافة مستخدم جديد
+                    onClick={() => history.push('/users/AddNewUser')} >Add New User
                   </CButton>
 
                 </CCol>
@@ -360,12 +360,12 @@ const Users = () => {
                 <CCol md="4" lg="4" xl="4" >
 
                   <CSelect custom name="select" id="select" value={activeCat} onChange={(e) => handleCat(e)}>
-                    <option value='0' >كل المستخدمين</option>
+                    <option value='0' >All Users</option>
 
-                    <option value='1'>مدراء</option>
-                    <option value='2'>مستخدمين</option>
-                    <option value='3'>فعال</option>
-                    <option value='4'>غير فعال </option>
+                    <option value='1'>Admin</option>
+                    <option value='2'>Normal</option>
+                    <option value='3'>Active</option>
+                    <option value='4'>Not Active</option>
                     {/* <option value='5'>  زبون</option> */}
                   </CSelect>
 
@@ -378,7 +378,11 @@ const Users = () => {
             <CCardBody className='usersTabel'>
               {data && <CDataTable
                 items={setFilter()}
-                fields={['id', 'البريد الالكتروني', 'الاسم', 'نوع_الحساب', 'الحالة', 'عمليات']}
+                fields={['id', { label: "Email", key: 'البريد الالكتروني' },
+                  { label: "Name", key: 'الاسم' },
+                  { label: "Account Type", key: 'نوع_الحساب' },
+                  { label: "Status", key: 'الحالة' },
+                  { label: "Actions", key: 'عمليات' },]}
                 hover
                 striped
                 pagination
@@ -392,7 +396,7 @@ const Users = () => {
 
                   // 'الاسم': (item) => (<td>{item.name}</td>),
                   // 'البريد الالكتروني': (item) => (<td>{item.email}</td>),
-                  'نوع_الحساب': (item) => (<td>{item.admin == 0 ? 'مستخدم' : "مدير"}</td>),
+                  'نوع_الحساب': (item) => (<td>{item.admin == 0 ? 'Normal User' : "Admin"}</td>),
                   'عمليات':
                     (item) => (
                       <td>
@@ -407,12 +411,12 @@ const Users = () => {
                           <>
                             {/* <br /> */}
                             <CBadge className="p-1  m-1 badg-click" color="secondary" onClick={() => handleActivation(item.id, 0)}  >
-                              تعطيل</CBadge></>
+                              Deactivate</CBadge></>
                           :
                           <>
                             {/* <br /> */}
                             <CBadge className="p-1  m-1 badg-click" color="primary" onClick={() => handleActivation(item.id, 1)}  >
-                              تفعيل </CBadge>
+                              Activate </CBadge>
 
                           </>
 
@@ -461,7 +465,7 @@ const Users = () => {
 
 
               <CRow>
-                <CCol md='12'><strong>معلومات الحساب</strong></CCol>
+                <CCol md='12'><strong>Account Information</strong></CCol>
                 <CCol lg={6}>
                   <table className="table table-striped table-hover">
                     <tbody>
@@ -470,17 +474,17 @@ const Users = () => {
                         <td><strong>{activeUser.id}</strong></td>
                       </tr>
                       <tr >
-                        <td>الاسم</td>
+                        <td>Name</td>
                         <td><strong>{activeUser.name}</strong></td>
                       </tr>
                       <tr >
-                        <td>{`البريد الالكتروني`}</td>
+                        <td>{`Email`}</td>
                         <td><strong>{activeUser.email}</strong></td>
                       </tr>
 
                       <tr >
-                        <td>نوع الحساب</td>
-                        <td><strong>{activeUser.admin == 0 ? "مستخدم عادي" : "مدير"}</strong></td>
+                        <td>Account Type</td>
+                        <td><strong>{activeUser.admin == 0 ? "Normal User" : "Admin"}</strong></td>
                       </tr>
                     </tbody>
                   </table>
@@ -490,29 +494,29 @@ const Users = () => {
                     <tbody>
 
                       <tr >
-                        <td>{`نسبة الربح`}</td>
+                        <td>Profit Percentage</td>
                         <td><strong>{activeUser.profit_percentage + " "}%</strong></td>
                       </tr>
                       <tr >
-                        <td>{`مبلغ اضافي`}</td>
+                        <td>{`fixed Profit Value`}</td>
                         <td><strong>{activeUser.fixed_profit_value + " "} د.ك</strong></td>
                       </tr>
 
 
 
                       <tr >
-                        <td>تاريخ الانشاء </td>
+                        <td>Created at</td>
                         <td><strong> {activeUser.created_at && activeUser.created_at.slice(0, 10)}</strong></td>
                       </tr>
 
                       <tr >
-                        <td> الحالة</td>
+                        <td> Status</td>
                         <td><strong>{activeUser.active == 1 ?
                           <>
-                            {`فعال`}
+                            {`Active`}
                           </> :
                           <>
-                            {`غير فعال`}
+                            {`Not Active`}
                           </>}</strong></td>
                       </tr>
 
@@ -524,20 +528,20 @@ const Users = () => {
 
               {activeUser.admin == 0 && <>
                 <CRow>
-                  <CCol md='12'><strong>معلومات الزبون</strong></CCol>
+                  <CCol md='12'><strong>Customer  Information</strong></CCol>
                   <CCol lg={6}>
                     <table className="table table-striped table-hover">
                       <tbody>
                         <tr >
-                          <td>هاتف</td>
+                          <td>Phone</td>
                           <td><strong>{activeUser.customer.phone ? activeUser.customer.phone : "-"}</strong></td>
                         </tr>
                         <tr >
-                          <td>الشركة</td>
+                          <td>Company</td>
                           <td><strong>{activeUser.customer.company ? activeUser.customer.company : "-"}</strong></td>
                         </tr>
                         <tr >
-                          <td>العنوان</td>
+                          <td>Address</td>
                           <td><strong>{activeUser.customer.address ? activeUser.customer.address : "-"}</strong></td>
                         </tr>
                       </tbody>
@@ -548,19 +552,19 @@ const Users = () => {
                       <tbody>
 
                         <tr >
-                          <td>اسم البنك</td>
+                          <td>   Bank Name</td>
                           <td>
                             <strong>
                               {activeUser.customer.bank_name ? activeUser.customer.bank_name : "-"}</strong></td>
                         </tr>
 
                         <tr >
-                          <td>رقم الحساب البنكي </td>
+                          <td>Bank Account Number</td>
                           <td><strong>
                             {activeUser.customer.bank_account_number ? activeUser.customer.bank_account_number : "-"}</strong></td>
                         </tr>
                         <tr >
-                          <td>رقم IBAN</td>
+                          <td> IBAN Number  </td>
                           <td><strong>
                             {activeUser.customer.IBAN_number ? activeUser.customer.IBAN_number : "-"}</strong></td>
                         </tr>
@@ -572,22 +576,22 @@ const Users = () => {
 
                 <hr />
                 <CRow>
-                  <CCol md='6'><strong>عنوان إرسال الشحنات</strong></CCol>
+                  <CCol md='6'><strong> Shipments Sending Address </strong></CCol>
 
-                  <CCol md="6" lg="3" xl="3" className='row-gap-15 col-gap-15'>
+                  <CCol md="6" lg="4" xl="4" className='row-gap-15 col-gap-15'>
                     {sendAddress && sendAddress != 'EMPTY' ?
                       <>
                         <CButton color="success" className='col-lg-6  col-md-6 col-sm-12 col-xs-12 updatebtn'
-                          onClick={() => openUpdateAddress(sendAddress)} >     تعديل العنوان
+                          onClick={() => openUpdateAddress(sendAddress)} >        Update
                         </CButton>
                         <CButton color="danger" className='col-lg-6  col-md-6 col-sm-12 col-xs-12 updatebtn'
-                          onClick={() => openDeleteAddress(sendAddress.id)} >  حذف العنوان
+                          onClick={() => openDeleteAddress(sendAddress.id)} >  Delete
                         </CButton>
 
                       </>
                       :
                       <CButton color="primary" className='col-lg-6  col-md-6 col-sm-12 col-xs-12 updatebtn'
-                        onClick={() => openAddAddress()} >      إضافة عنوان
+                        onClick={() => openAddAddress()} >         Add Address
                       </CButton>}
                   </CCol>
 
@@ -600,7 +604,7 @@ const Users = () => {
                       <tbody>
                         <tr >
                           {sendAddress && sendAddress != 'EMPTY' ? <td>  <Address Address={sendAddress} /></td> : null}
-                          {sendAddress && sendAddress == 'EMPTY' ? <td>    <b> لا يوجد عنوان</b> </td> : null}
+                          {sendAddress && sendAddress == 'EMPTY' ? <td>    <b>  No Address </b> </td> : null}
 
                         </tr>
 
@@ -618,7 +622,7 @@ const Users = () => {
                     <hr />
 
                     <CRow>
-                      <CCol md='12'><strong>معلومات اضافية</strong></CCol>
+                      <CCol md='12'><strong> Additional Information  </strong></CCol>
                       <CCol lg={12} >
                         <table className="table table-striped table-hover">
                           <tbody>
@@ -632,7 +636,7 @@ const Users = () => {
                                     <strong>
                                       {item.file == 0 ? item.value :
                                         <>
-                                          <a href={`${global.apiUrl + item.value}`} target="_blank">رابط الملف
+                                          <a href={`${global.apiUrl + item.value}`} target="_blank"> File URL
                                           </a>
 
 
@@ -654,7 +658,7 @@ const Users = () => {
                   null}
                 {activeUser.customer.categories && activeUser.customer.categories.length > 0 &&
                   <CRow   >
-                    <CCol md='12'> <strong>التصنيفات</strong> </CCol>
+                    <CCol md='12'> <strong>Categories</strong> </CCol>
                     {
 
                       activeUser.customer.categories.length > 0 && activeUser.customer.categories.map((cat, index) => {
@@ -664,10 +668,10 @@ const Users = () => {
 
 
                             <ul className=" card list-group list-group-flush">
-                              <li className="list-group-item arabic-align">
-                                <strong>اسم عربي :{' '}</strong> {cat.name_ar}
+                              <li className="list-group-item    ">
+                                <strong>   Arabic Name :{' '}</strong> {cat.name_ar}
                                 <br />
-                                <strong>  اسم انكليزي :  {' '}</strong>  {cat.name_en}</li>
+                                <strong>     English Name :  {' '}</strong>  {cat.name_en}</li>
 
 
 
@@ -693,7 +697,7 @@ const Users = () => {
       }
       <CModal
         show={small}
-        onClose={() => setSmall(!small)}
+        onClose={() => setSmall(!false)}
         size="sm"
         color='danger'
       >
@@ -701,12 +705,12 @@ const Users = () => {
           <CModalTitle></CModalTitle>
         </CModalHeader>
         <CModalBody>
-          هل انت متأكد أنك تريد حذف مستخدم ({itemToDelete.name})
+          Are You Sure Want To Delete User({itemToDelete.name})
 
         </CModalBody>
         <CModalFooter>
-          <CButton color="danger" onClick={() => handleDelete()}>حذف</CButton>{' '}
-          <CButton color="secondary" onClick={() => setSmall(!small)}>الغاء</CButton>
+          <CButton color="danger" onClick={() => handleDelete()}>Delete</CButton>{' '}
+          <CButton color="secondary" onClick={() => setSmall(!small)}>Cancel</CButton>
         </CModalFooter>
       </CModal>
       {modal && activeUser.customer &&

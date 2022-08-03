@@ -124,7 +124,7 @@ const CustomerUpdate = ({ customer, setRefresh, refresh }) => {
             setVisible(10)
             if (response.success) {
                 await setVisible(6)
-                setSuccessAdd("تم تعديل معلومات الزبون بنجاح")
+                setSuccessAdd("Customer information has been updated successfully")
                 // setData({ _method: 'put', })
                 setRefresh(!refresh)
 
@@ -168,24 +168,24 @@ const CustomerUpdate = ({ customer, setRefresh, refresh }) => {
 
                                         {/* className="justify-content-center" */}
 
-                                        <CCol md='12'> <strong>معلومات الزبون </strong></CCol>
+                                        <CCol md='12'> <strong>Customer Information</strong></CCol>
                                         <CCol md="6" lg="6" xl="6">
                                             <CFormGroup row>
                                                 <CCol md="12">
-                                                    <CLabel htmlFor="text-input">رقم الهاتف</CLabel>
+                                                    <CLabel htmlFor="text-input"> Phone  </CLabel>
                                                 </CCol>
                                                 <CCol xs="12" md="12">
 
                                                     <CInput name="phone"
                                                         autoComplete='off'
                                                         onChange={handleData}
-                                                        placeholder={`رقم الهاتف`}
+                                                        placeholder={`Phone`}
                                                         value={upData.phone} />
                                                 </CCol>
                                             </CFormGroup>
                                             <CFormGroup row>
                                                 <CCol md="12">
-                                                    <CLabel htmlFor="text-input">{`الشركة`}</CLabel>
+                                                    <CLabel htmlFor="text-input">{`Company`}</CLabel>
                                                 </CCol>
                                                 <CCol xs="12" md="12">
 
@@ -193,14 +193,14 @@ const CustomerUpdate = ({ customer, setRefresh, refresh }) => {
                                                         autoComplete='off'
                                                         type='text'
                                                         onChange={handleData}
-                                                        placeholder={`الشركة`}
+                                                        placeholder={`Company`}
                                                         value={upData.company} />
                                                 </CCol>
                                             </CFormGroup>
 
                                             <CFormGroup row>
                                                 <CCol md="12">
-                                                    <CLabel htmlFor="text-input">{`العنوان`}</CLabel>
+                                                    <CLabel htmlFor="text-input">{`Address`}</CLabel>
                                                 </CCol>
                                                 <CCol xs="12" md="12">
 
@@ -208,7 +208,7 @@ const CustomerUpdate = ({ customer, setRefresh, refresh }) => {
                                                         autoComplete='off'
                                                         type='text'
                                                         onChange={handleData}
-                                                        placeholder={`العنوان`}
+                                                        placeholder={`Address`}
                                                         value={upData.address} />
                                                 </CCol>
                                             </CFormGroup>
@@ -218,20 +218,20 @@ const CustomerUpdate = ({ customer, setRefresh, refresh }) => {
                                         <CCol md="6" lg="6" xl="6">
                                             <CFormGroup row>
                                                 <CCol md="12">
-                                                    <CLabel htmlFor="text-input">اسم البنك </CLabel>
+                                                    <CLabel htmlFor="text-input">Bank Name</CLabel>
                                                 </CCol>
                                                 <CCol xs="12" md="12">
 
                                                     <CInput name="bank_name"
                                                         autoComplete='off'
                                                         onChange={handleData}
-                                                        placeholder={`اسم البنك`}
+                                                        placeholder={`Bank Name`}
                                                         value={upData.bank_name} />
                                                 </CCol>
                                             </CFormGroup>
                                             <CFormGroup row>
                                                 <CCol md="12">
-                                                    <CLabel htmlFor="text-input">{`رقم الحساب البنكي`}</CLabel>
+                                                    <CLabel htmlFor="text-input">{`Bank Account Number`}</CLabel>
                                                 </CCol>
                                                 <CCol xs="12" md="12">
 
@@ -239,14 +239,14 @@ const CustomerUpdate = ({ customer, setRefresh, refresh }) => {
                                                         autoComplete='off'
                                                         type='text'
                                                         onChange={handleData}
-                                                        placeholder={`رقم الحساب البنكي`}
+                                                        placeholder={`Bank Account Number`}
                                                         value={upData.bank_account_number} />
                                                 </CCol>
                                             </CFormGroup>
 
                                             <CFormGroup row>
                                                 <CCol md="12">
-                                                    <CLabel htmlFor="text-input">{`رقم IBAN`}</CLabel>
+                                                    <CLabel htmlFor="text-input">{`IBAN Number`}</CLabel>
                                                 </CCol>
                                                 <CCol xs="12" md="12">
 
@@ -254,7 +254,7 @@ const CustomerUpdate = ({ customer, setRefresh, refresh }) => {
                                                         autoComplete='off'
                                                         type='text'
                                                         onChange={handleData}
-                                                        placeholder={`رقم IBAN`}
+                                                        placeholder={`IBAN Number`}
                                                         value={upData.IBAN_number} />
                                                 </CCol>
                                             </CFormGroup>
@@ -304,7 +304,7 @@ const CustomerUpdate = ({ customer, setRefresh, refresh }) => {
 
                                         <CCol md="6" lg="6" xl="6" xs="12" sm="12" >
                                             {<CButton color="success" block type='submit'>
-                                                حفظ
+                                                Save
                                                 {loading && <>{' '}<i className="fa fa-spinner fa-spin" ></i></>} </CButton>}
                                         </CCol>
 
