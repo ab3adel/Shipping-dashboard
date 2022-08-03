@@ -1,0 +1,56 @@
+.register-cont{
+    min-height: unset;
+}
+.PhoneInputInternationalIconPhone{
+    fill: #d8d2d2a1 ;
+}
+.PhoneInputInput{
+    outline: none;
+    border: none;
+}
+.PhoneInput--focus{
+    color: #768192;
+    background-color: #fff;
+    border-color: #958bef;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(50 31 219 / 25%);
+}
+.input-group-text {
+  
+    min-width: 40px;
+    place-content: center;
+}
+.slideImg{
+    max-width: 100%;
+    height: 200px;
+    width: 100%;
+ 
+}
+.updatebtn{
+    display: flex;
+    justify-content: center;
+    float: right;
+    align-items: center;
+    min-width: fit-content;
+}
+.faqsPage{
+    .pagination {
+        margin-bottom: 0;
+    }
+}
+.row-gap-15{
+    row-gap: 15px;
+    justify-content: flex-end;
+}
+.col-gap-15{
+    column-gap: 15px;
+    display: flex;
+    
+}
+.p-arab{
+    direction: rtl;
+    text-align: start;
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid #ececec;
+}

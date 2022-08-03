@@ -1,0 +1,15 @@
+
+blockquote {
+    margin: 0 0 1rem;
+    display: flex;
+    flex-direction: column;
+    .DlINK {
+        text-decoration: underline;
+        background-color: transparent;
+        color: #ffffff;
+    }
+    .DlINK:hover {
+        text-decoration: underline;
+        color: #dddaff;
+    }
+}

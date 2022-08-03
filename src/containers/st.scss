@@ -1,0 +1,41 @@
+.miniLogo {
+    width: 100px;
+}
+
+.sidelogo {
+    max-width: 100%;
+    width: 113px;
+    height: 55px;
+    padding: 2px 0;
+}
+
+.c-sidebar .c-sidebar-brand {
+    color: #fff;
+    background: #fff;
+}
+
+.badg-click {
+    cursor: pointer;
+}
+
+.d-md-down-none.c-header-nav {
+    margin-inline-end: auto !important;
+    // margin-right: auto !important;
+}
+
+// .mr-auto
+.text-end {
+    text-align: end;
+}
+
+.addressCol {
+    display: flex;
+    column-gap: 15px;
+    row-gap: 15px;
+    flex-flow: wrap;
+}
+
+.addressDetail {
+    display: flex;
+    h6{margin-bottom:0px}
+}

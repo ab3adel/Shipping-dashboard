@@ -1,0 +1,22 @@
+.register-cont{
+    min-height: unset;
+}
+.PhoneInputInternationalIconPhone{
+    fill: #d8d2d2a1 ;
+}
+.PhoneInputInput{
+    outline: none;
+    border: none;
+}
+.PhoneInput--focus{
+    color: #768192;
+    background-color: #fff;
+    border-color: #958bef;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(50 31 219 / 25%);
+}
+.input-group-text {
+  
+    min-width: 40px;
+    place-content: center;
+}

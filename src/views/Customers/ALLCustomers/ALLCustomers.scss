@@ -1,0 +1,68 @@
+
+.updatebtn{
+    display: flex;
+    justify-content: center;
+    float: right;
+}
+.row-gap-15{
+    row-gap: 15px;
+    place-content: space-between;
+    place-items: center;
+}
+.col-gap-15{
+    column-gap: 15px;
+    display: flex;
+    justify-content: flex-end;
+    
+}
+.register-cont{
+    min-height: unset;
+}
+.PhoneInputInternationalIconPhone{
+    fill: #d8d2d2a1 ;
+}
+.PhoneInputInput{
+    outline: none;
+    border: none;
+}
+.PhoneInput--focus{
+    color: #768192;
+    background-color: #fff;
+    border-color: #958bef;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(50 31 219 / 25%);
+}
+.input-group-text {
+  
+    min-width: 40px;
+    place-content: center;
+}
+.badg-click{cursor: pointer;}
+.usersTabel{
+  
+    .pagination {
+        padding-left: 0;
+        flex-flow: wrap;
+    }
+    .table th, .table td {
+        padding: 0.55rem;
+        vertical-align: middle;
+        border-top: 1px solid;
+        text-align: center;
+        border-top-color: #d8dbe0;
+    }
+}
+.arabic-align{
+     
+    direction: rtl;
+    text-align: start;
+
+}
+@media (max-width:768px) {
+    .col-gap-15{
+      flex-flow: wrap;
+        
+    }
+    .mr-t{margin-top: 0.5rem;}
+    
+}

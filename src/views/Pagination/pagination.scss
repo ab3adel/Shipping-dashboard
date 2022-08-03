@@ -1,0 +1,15 @@
+
+.pagination {
+  display:flex;
+  justify-content: center;
+  width:100%;
+  .pagesList {
+    display: inline-block;
+    button.btn {
+      border: 1px solid #39f;
+    }
+    button.btn.active {
+      background-color: #39f;
+    }
+  }
+}
