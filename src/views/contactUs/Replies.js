@@ -191,8 +191,8 @@ const ConatctUs = () => {
                 <CCol xl={12}>
                     <CCard>
                         <CCardHeader>
-                            <CCol md='12'><strong>الردود</strong></CCol>
-                            {/* 
+                            <CCol md='12'><strong>Replys</strong></CCol>
+                            {/*
               <CCol md="4" lg="4" xl="4" >
 
                 <CSelect custom name="select" onChange={(e) => handleUrlFilter(e)}>
@@ -210,7 +210,10 @@ const ConatctUs = () => {
                         <CCardBody className='usersTabel'>
                             {data.length > 0 && <CDataTable
                                 items={data}
-                                fields={['id', "contact_id", 'الرد', 'التاريخ', 'عمليات']}
+                                fields={['id', "contact_id",
+                               {  label:'Reply',key:'الرد'},
+                               {label:'History',key:'التاريخ'}
+                               , {label:"Actions",key:'عمليات'}]}
                                 hover
                                 striped
                                 sorter
@@ -226,7 +229,7 @@ const ConatctUs = () => {
                                             <td>
                                                 <CBadge className="p-1 m-1 badg-click" color="danger"
                                                     onClick={() => handleShowModal(item)}
-                                                > حذف   </CBadge>
+                                                > Delete   </CBadge>
 
 
                                             </td>
@@ -265,14 +268,14 @@ const ConatctUs = () => {
                 size="sm"
                 color='danger'>
                 <CModalHeader closeButton>
-                    <CModalTitle> حذف رسالة</CModalTitle>
+                    <CModalTitle> Delete Message </CModalTitle>
                 </CModalHeader>
                 <CModalBody>
-                    {`هل انت متأكد أنك تريد حذف رد `}
+                    {`Are you sure you want to delete Reply`}
                 </CModalBody>
                 <CModalFooter>
-                    <CButton color="danger" onClick={() => handleDelete()}>حذف</CButton>{' '}
-                    <CButton color="secondary" onClick={() => setSmall(!small)}>الغاء</CButton>
+                    <CButton color="danger" onClick={() => handleDelete()}>Delete</CButton>{' '}
+                    <CButton color="secondary" onClick={() => setSmall(!small)}>Cancel</CButton>
                 </CModalFooter>
             </CModal>
 

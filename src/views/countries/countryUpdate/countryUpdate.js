@@ -95,8 +95,7 @@ const CountryUpdate = ({ match }) => {
 
         }
         const response = await responsee.json();
-        console.log('response', response);
-        console.log(response);
+
         if (response.success == true) {
           let cont = response.payload.filter(item => item.id == id)[0]
           if (cont) {
@@ -170,8 +169,7 @@ const CountryUpdate = ({ match }) => {
         }
       );
       const response = await responsee.json();
-      console.log('response', response);
-      console.log(response);
+
       setVisible(10)
       if (response.success) {
         await setVisible(6)
@@ -237,18 +235,18 @@ const CountryUpdate = ({ match }) => {
                     <CCardBody>
                       <CRow >
 
-                        <CCol md='12'> <strong>معلومات الدولة</strong></CCol>
+                        <CCol md='12'> <strong>Country Information</strong></CCol>
                         <CCol md="6" lg="6" xl="6">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">الاسم الانكليزي</CLabel>
+                              <CLabel htmlFor="text-input"> English Name</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
                               <CInput name="country_name_en"
                                 required
                                 onChange={handleData}
-                                placeholder={`الاسم الانكليزي`}
+                                placeholder={`English Name `}
                                 value={upData.country_name_en} />
                             </CCol>
                           </CFormGroup>
@@ -256,14 +254,14 @@ const CountryUpdate = ({ match }) => {
                         <CCol md="6" lg="6" xl="6">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">{`الاسم العربي`}</CLabel>
+                              <CLabel htmlFor="text-input">{`Arabic Name`}</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
                               <CInput name="country_name_ar"
 
                                 onChange={handleData}
-                                placeholder={`الاسم العربي`}
+                                placeholder={`Arabic Name`}
                                 value={upData.country_name_ar} />
                             </CCol>
                           </CFormGroup>
@@ -272,33 +270,33 @@ const CountryUpdate = ({ match }) => {
                         <CCol md="6" lg="6" xl="6">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">{`الحالة`}</CLabel>
+                              <CLabel htmlFor="text-input">{`Status`}</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
                               <CSelect custom name="active"
                                 value={upData.active} onChange={(e) => handleData(e)}>
-                                <option value='' >  اختر حالة   </option>
+                                <option value='' >  Choose Status   </option>
 
-                                <option value='1' >     فعالة   </option>
-                                <option value='0' >     غير فعالة   </option>
+                                <option value='1' >     Active   </option>
+                                <option value='0' >     Inactive    </option>
                               </CSelect>
                             </CCol>
                           </CFormGroup>
 
                         </CCol>
 
-                        <CCol md='12'> <strong>معلومات العملة</strong></CCol>
+                        <CCol md='12'> <strong> Currency Information</strong></CCol>
                         <CCol md="6" lg="6" xl="6">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">اسم العملة الانكليزي</CLabel>
+                              <CLabel htmlFor="text-input">Currency English Name</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
                               <CInput name="currency_code_ar"
 
                                 onChange={handleData}
-                                placeholder={`اسم العملة الانكليزي`}
+                                placeholder={`Currency English Name `}
                                 value={upData.currency_code_en} />
                             </CCol>
                           </CFormGroup>
@@ -306,14 +304,14 @@ const CountryUpdate = ({ match }) => {
                         <CCol md="6" lg="6" xl="6">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">{`اسم العملة العربي`}</CLabel>
+                              <CLabel htmlFor="text-input">{`Currency Arabic Name`}</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
                               <CInput name="currency_code_ar"
 
                                 onChange={handleData}
-                                placeholder={`اسم العملة العربي`}
+                                placeholder={`Currency Arabic Name`}
                                 value={upData.currency_code_ar} />
                             </CCol>
                           </CFormGroup>
@@ -366,7 +364,7 @@ const CountryUpdate = ({ match }) => {
 
                         <CCol md="6" lg="6" xl="6" xs="12" sm="12" >
                           {<CButton color="success" block type='submit'>
-                            حفظ
+                            Save
                             {loading && <>{' '}<i className="fa fa-spinner fa-spin" ></i></>} </CButton>}
                         </CCol>
 

@@ -68,7 +68,7 @@ const DynamicPages = () => {
         );
         const response = await responsee.json();
         // console.log('response',response);
-        console.log('faqs', response);
+
         if (response.success) {
 
 
@@ -155,8 +155,7 @@ const DynamicPages = () => {
         }
       );
       const response = await responsee.json();
-      console.log('response', response);
-      console.log(response);
+
       if (responsee.status == 200) {
         setSmall(!small)
         document.getElementById('root').style.opacity = 1;
@@ -191,13 +190,13 @@ const DynamicPages = () => {
               <CRow className=" row-gap-15">
 
                 <CCol md="6" lg="6" xl="6" className="justify-content-center align-self-center align-items-center place-items-center text-capitalize">
-                  <strong>الصفحات</strong>
+                  <strong>The Pages</strong>
                 </CCol>
 
                 <CCol md="6" lg="6" xl="6" className='row-gap-15 col-gap-15'>
 
                   <CButton color="success" className='col-lg-6  col-md-6 col-sm-12 col-xs-12 updatebtn'
-                    onClick={() => history.push('/DynamicPages/AddNewPage')} >  إضافة صفحة جديدة
+                    onClick={() => history.push('/DynamicPages/AddNewPage')} >   Add New Page
                   </CButton>
 
                 </CCol>
@@ -210,7 +209,9 @@ const DynamicPages = () => {
             <CCardBody className='usersTabel'>
               {data && <CDataTable
                 items={data}
-                fields={['id', 'الاسم العربي', 'الاسم الانكليزي', 'عمليات']}
+                fields={['id',{ label:"Arabic Name",key:'الاسم العربي'}
+                , {label:"English Name",key:'الاسم الانكليزي'}
+                , {label:"Actions",key:'عمليات'}]}
                 hover
                 striped
                 pagination
@@ -263,10 +264,10 @@ const DynamicPages = () => {
                 <CCol md="6" lg="6" xl="6" className=" row-gap-15 col-gap-15 ">
                   <CButton color="info" className='col-lg-4  col-md-4 col-sm-12 col-xs-12 updatebtn'
                     onClick={() => history.push(`/DynamicPages/Update/${activeUser.id}`)} >
-                    تعديل
+                    Update
                   </CButton>
                   <CButton color="success" className='col-lg-4  col-md-4col-sm-12 col-xs-12 updatebtn'
-                    onClick={() => handleBack()} >  رجوع
+                    onClick={() => handleBack()} >  Back
                   </CButton>
 
                 </CCol>
@@ -278,13 +279,13 @@ const DynamicPages = () => {
 
 
               <CRow>
-                <CCol md='12'><strong>معلومات الصفحة</strong></CCol>
+                <CCol md='12'><strong>Page Information</strong></CCol>
                 <CCol lg={6}>
                   <table className="table table-striped table-hover">
                     <tbody>
 
                       <tr >
-                        <td>الاسم العربي</td>
+                        <td> Arabic Name</td>
                         <td><strong>{activeUser.title_ar}</strong></td>
                       </tr>
 
@@ -296,7 +297,7 @@ const DynamicPages = () => {
                     <tbody>
 
                       <tr >
-                        <td> الاسم الانكليزي </td>
+                        <td> English Name </td>
                         <td><strong>{activeUser.title_en}</strong></td>
                       </tr>
 
@@ -311,7 +312,7 @@ const DynamicPages = () => {
 
 
               <CRow style={{ direction: 'ltr' }}>
-                <CCol md='12'><strong> المحتوى الانكليزي</strong></CCol>
+                <CCol md='12'><strong>English Content</strong></CCol>
                 <CCol style={{ textAlign: 'start' }} lg={12} dangerouslySetInnerHTML={{ __html: activeUser.content_en }}
                 >
 
@@ -319,7 +320,7 @@ const DynamicPages = () => {
               </CRow>
               <hr />
               <CRow>
-                <CCol md='12'><strong> المحتوى العربي</strong></CCol>
+                <CCol md='12'><strong> Arabic Content</strong></CCol>
                 <CCol lg={12} dangerouslySetInnerHTML={{ __html: activeUser.content_ar }}>
 
                 </CCol>
@@ -346,12 +347,12 @@ const DynamicPages = () => {
           <CModalTitle></CModalTitle>
         </CModalHeader>
         <CModalBody>
-          هل انت متأكد أنك تريد حذف صفحة ({itemToDelete.title_ar})
+            Are you sure you want to delete the page ({itemToDelete.title_en})
 
         </CModalBody>
         <CModalFooter>
-          <CButton color="danger" onClick={() => handleDelete()}>حذف</CButton>{' '}
-          <CButton color="secondary" onClick={() => setSmall(!small)}>الغاء</CButton>
+          <CButton color="danger" onClick={() => handleDelete()}>Delete</CButton>{' '}
+          <CButton color="secondary" onClick={() => setSmall(!small)}>Cancel</CButton>
         </CModalFooter>
       </CModal>
 

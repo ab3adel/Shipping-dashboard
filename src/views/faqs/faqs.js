@@ -103,8 +103,7 @@ const FAQs = () => {
         }
       );
       const response = await responsee.json();
-      console.log('response', response);
-      console.log(response);
+
       if (response.success == true && response.payload) {
         setSmall(!small)
         document.getElementById('root').style.opacity = 1;
@@ -159,7 +158,7 @@ const FAQs = () => {
       console.log(response);
       if (response.success) {
 
-        setSuccessAddUpdate("تم تعديل السؤال بنجاح")
+        setSuccessAddUpdate("Question has been updated successfully")
         setRefresh(!refresh)
         //  setInterval(() => {setSuccessAddUpdate('')}, 3000)
         //  setInterval(() => {setItemUpdate('')}, 3000)
@@ -225,7 +224,7 @@ const FAQs = () => {
       console.log(response);
       if (response.success) {
         setVisible(10)
-        setSuccessAdd("تم اضافة سؤال بنجاح")
+        setSuccessAdd("Question has been added successfully")
         setfaqData({
           question_ar: '', question_en: '', answer_ar: '', answer_en: ''
         })
@@ -282,7 +281,7 @@ const FAQs = () => {
 
         const response = await responsee.json();
         // console.log('response',response);
-        console.log('faqs', response);
+
 
         if (response.success) {
           setData(response.payload)
@@ -324,12 +323,11 @@ const FAQs = () => {
               <CRow className="justify-content-center row-gap-15 ">
 
                 <CCol md="6" lg="6" xl="6" className="justify-content-center align-self-center align-items-center place-items-center text-capitalize">
-                  الاسئلة الشائعة
+                  Common Questions
                 </CCol>
                 <CCol md="6" lg="6" xl="6" className=" row-gap-15 col-gap-15 ">
                   <CButton color="success" className='col-lg-6  col-md-6 col-sm-12 col-xs-12 updatebtn'
-                    onClick={() => setPageStatus(1)} >اضافة سؤال
-                  </CButton>
+                    onClick={() => setPageStatus(1)} >Add Question</CButton>
 
                 </CCol>
               </CRow>
@@ -356,7 +354,7 @@ const FAQs = () => {
                                       className=" m-0 p-0"
                                       onClick={() => setAccordion(accordion === index ? null : index)}
                                     >
-                                      <h5 className="textStart ">{item.question_ar}</h5>
+                                      <h5 className="textStart ">{item.question_en}</h5>
                                     </CButton>
                                   </CCol>
                                   <CCol md="5" lg="5" xl="5" className="justify-content-flex-end row-gap-15 col-gap-15 ">
@@ -366,7 +364,7 @@ const FAQs = () => {
                                     </CButton>
                                     <CButton color="success" className='col-lg-4  col-md-4 col-sm-6 col-xs-6 updatebtn '
                                       onClick={() => { { setErrorMessageUpdate('') } { setSuccessAddUpdate('') } { setItemUpdate(item) } { setPageStatus(2) } }}
-                                    >تعديل
+                                    >Update
                                     </CButton>
                                   </CCol>
                                 </CRow>
@@ -410,11 +408,11 @@ const FAQs = () => {
                 <CRow className="justify-content-center row-gap-15 ">
 
                   <CCol md="6" lg="6" xl="6" className="justify-content-center align-self-center align-items-center place-items-center text-capitalize">
-                    اضافة سؤال جديد
+                    Add New Question
                   </CCol>
                   <CCol md="6" lg="6" xl="6" className=" row-gap-15 col-gap-15 ">
                     <CButton color="success" className='col-lg-6  col-md-6 col-sm-12 col-xs-12 updatebtn'
-                      onClick={() => handleBack()} >رجوع
+                      onClick={() => handleBack()} >Back
                     </CButton>
 
                   </CCol>
@@ -530,7 +528,7 @@ const FAQs = () => {
                   }
 
                   <CCol md="6" lg="6" xl="6" xs="12" sm="12" >
-                    <CButton color="success" block type='submit'>حفظ
+                    <CButton color="success" block type='submit'>Save
                       {loading && <>{' '}<i className="fa fa-spinner fa-spin" ></i></>} </CButton>
                   </CCol>
 
@@ -548,11 +546,11 @@ const FAQs = () => {
                 <CRow className="justify-content-center row-gap-15 ">
 
                   <CCol md="6" lg="6" xl="6" className="justify-content-center align-self-center align-items-center place-items-center text-capitalize">
-                    تعديل سؤال
+                    Update Question
                   </CCol>
                   <CCol md="6" lg="6" xl="6" className=" row-gap-15 col-gap-15 ">
                     <CButton color="success" className='col-lg-6  col-md-6 col-sm-12 col-xs-12 updatebtn'
-                      onClick={() => handleBack()} >رجوع
+                      onClick={() => handleBack()} >Back
                     </CButton>
 
                   </CCol>
@@ -672,7 +670,7 @@ const FAQs = () => {
                   }
 
                   <CCol md="6" lg="6" xl="6" xs="12" sm="12" >
-                    <CButton color="success" block type='submit'>حفظ
+                    <CButton color="success" block type='submit'>Save
                       {loadingUpdate && <>{' '}<i className="fa fa-spinner fa-spin" ></i></>} </CButton>
                   </CCol>
 
@@ -699,12 +697,12 @@ const FAQs = () => {
           <CModalTitle></CModalTitle>
         </CModalHeader>
         <CModalBody>
-          هل انت متأكد أنك تريد حذف سؤال ({itemToDelete.question_ar})
+          Are you sure you want to delete ({itemToDelete.question_en})
 
         </CModalBody>
         <CModalFooter>
-          <CButton color="danger" onClick={() => handleDelete()}>حذف</CButton>{' '}
-          <CButton color="secondary" onClick={() => setSmall(!small)}>الغاء</CButton>
+          <CButton color="danger" onClick={() => handleDelete()}>Delete</CButton>{' '}
+          <CButton color="secondary" onClick={() => setSmall(!small)}>Cancel</CButton>
         </CModalFooter>
       </CModal>
     </div>

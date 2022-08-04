@@ -16,15 +16,15 @@ class ControlledEditor extends Component {
     super(props);
     // var contentState = stateFromHTML(props.privacyPolicy);
     // var editorStat = EditorState.createWithContent(ContentState.createFromBlockArray(convertFromHTML(props.privacyPolicy)));
-    
+
     // const html = props.privacyPolicy;
     // const contentBlock = htmlToDraft(html);
-   
+
 
     //  const editorStateInitial =
     //   EditorState.createWithContent(
     //     ContentState.createFromBlockArray(contentBlock.htmlToDraft(props.privacyPolicy)));
-    
+
     // var editorStat = EditorState.createWithContent(contentState);
     this.state = {editorState:   EditorState.createWithContent(
       ContentState.createFromBlockArray(htmlToDraft(props.dataText)))};
@@ -33,7 +33,7 @@ class ControlledEditor extends Component {
     this.setState({
       editorState,
     });
-    console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())))
+
     this.props.setDataText(draftToHtml(convertToRaw(editorState.getCurrentContent())))
   };
 

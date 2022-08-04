@@ -223,14 +223,14 @@ const Categories = () => {
             <CCardHeader>
               <CRow className=" row-gap-15">
                 <CCol md="6" lg="6" xl="6" className="justify-content-center align-self-center align-items-center place-items-center text-capitalize">
-                  التصنيفات
+                  Categories
                 </CCol>
 
                 <CCol md="6" lg="6" xl="6" className='row-gap-15 col-gap-15'>
 
                   <CButton color="success" className='col-lg-6  col-md-6 col-sm-12 col-xs-12 updatebtn'
                     onClick={() => history.push('/Categories/AddNewCategory')} >
-                    إضافة تصنيف جديد
+                    Add new category
 
                   </CButton>
 
@@ -260,11 +260,11 @@ const Categories = () => {
                       <td>
                         <CBadge className="p-1 m-1 badg-click" color="danger"
                           onClick={() => handleShowModal(item)}
-                        > حذف </CBadge>
+                        > Delete</CBadge>
                         <br />
                         <CBadge className="p-1  m-1 badg-click" color="info"
                           onClick={() => history.push(`/Categories/Update/${item.id}`)}  >
-                          تعديل ....</CBadge>
+                         ...Update</CBadge>
 
                       </td>
                     ),
@@ -283,14 +283,14 @@ const Categories = () => {
         size="sm"
         color='danger'>
         <CModalHeader closeButton>
-          <CModalTitle> حذف تصنيف</CModalTitle>
+          <CModalTitle> Delete Category</CModalTitle>
         </CModalHeader>
         <CModalBody>
-          {`هل انت متأكد أنك تريد حذف تصنيف (${itemToDelete.name_ar})`}
+          {`  Are you sure you want to delete the category (${itemToDelete.name_en})`}
         </CModalBody>
         <CModalFooter>
-          <CButton color="danger" onClick={() => handleDelete()}>حذف</CButton>{' '}
-          <CButton color="secondary" onClick={() => setSmall(!small)}>الغاء</CButton>
+          <CButton color="danger" onClick={() => handleDelete()}>Delete</CButton>{' '}
+          <CButton color="secondary" onClick={() => setSmall(!small)}>Cancel</CButton>
         </CModalFooter>
       </CModal>
 

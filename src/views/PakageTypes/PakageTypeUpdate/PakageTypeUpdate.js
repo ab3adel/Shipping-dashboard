@@ -91,8 +91,7 @@ const PakageTypeUpdate = ({ match }) => {
 
         }
         const response = await responsee.json();
-        console.log('response', response);
-        console.log(response);
+
         if (response.success == true) {
           let cont = response.payload.filter(item => item.id == id)[0]
           if (cont) {
@@ -161,12 +160,11 @@ const PakageTypeUpdate = ({ match }) => {
         }
       );
       const response = await responsee.json();
-      console.log('response', response);
-      console.log(response);
+
       setVisible(10)
       if (response.success) {
         await setVisible(6)
-        setSuccessAdd("تم تعديل نوع بنجاح")
+        setSuccessAdd("Type has been edited successfully")
 
         setRefresh(!refresh)
 
@@ -190,10 +188,6 @@ const PakageTypeUpdate = ({ match }) => {
   }
 
 
-
-
-
-  console.log('data', upData)
   return (
     <div className="c-app c-default-layout flex-row align-items-center register-cont">
 
@@ -208,7 +202,7 @@ const PakageTypeUpdate = ({ match }) => {
             <CRow className=" row-gap-15">
 
               <CCol md="6" lg="6" xl="6" className="justify-content-center align-self-center align-items-center place-items-center text-capitalize">
-                <strong>{i18n.language == 'ar' ? "تعديل نوع" : "Update Country"}</strong>
+                <strong>{i18n.language == 'ar' ? "تعديل نوع" : "Update Type"}</strong>
               </CCol>
               <CCol md="6" lg="6" xl="6" className='row-gap-15 col-gap-15'>
 
@@ -228,18 +222,18 @@ const PakageTypeUpdate = ({ match }) => {
                     <CCardBody>
                       <CRow >
 
-                        <CCol md='12'> <strong>معلومات النوع</strong></CCol>
+                        <CCol md='12'> <strong>Type Information </strong></CCol>
                         <CCol md="6" lg="6" xl="6">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">الاسم الانكليزي</CLabel>
+                              <CLabel htmlFor="text-input">English Name</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
                               <CInput name="name_en"
                                 required
                                 onChange={handleData}
-                                placeholder={`الاسم الانكليزي`}
+                                placeholder={`English Name`}
                                 value={upData.name_en} />
                             </CCol>
                           </CFormGroup>
@@ -247,14 +241,14 @@ const PakageTypeUpdate = ({ match }) => {
                         <CCol md="6" lg="6" xl="6">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">{`الاسم العربي`}</CLabel>
+                              <CLabel htmlFor="text-input">{`Arabic Name`}</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
                               <CInput name="name_ar"
                                 required
                                 onChange={handleData}
-                                placeholder={`الاسم العربي`}
+                                placeholder={`Arabic Name`}
                                 value={upData.name_ar} />
                             </CCol>
                           </CFormGroup>
@@ -264,7 +258,7 @@ const PakageTypeUpdate = ({ match }) => {
                             <CCol md="12">
 
 
-                              <CLabel htmlFor="text-input">{`الوزن المسموح`}</CLabel>
+                              <CLabel htmlFor="text-input">{`Allowed Weight`}</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
@@ -273,7 +267,7 @@ const PakageTypeUpdate = ({ match }) => {
                                 type='float'
                                 min='0'
                                 onChange={handleData}
-                                placeholder={`الوزن المسموح`}
+                                placeholder={`Allowed Weight`}
                                 value={upData.allowed_weight} />
                             </CCol>
                           </CFormGroup>
@@ -324,7 +318,7 @@ const PakageTypeUpdate = ({ match }) => {
 
                         <CCol md="6" lg="6" xl="6" xs="12" sm="12" >
                           {<CButton color="success" block type='submit'>
-                            حفظ
+                            Save
                             {loading && <>{' '}<i className="fa fa-spinner fa-spin" ></i></>} </CButton>}
                         </CCol>
 

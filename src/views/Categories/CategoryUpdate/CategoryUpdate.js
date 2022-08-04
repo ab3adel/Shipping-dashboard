@@ -150,7 +150,7 @@ const CategoryUpdate = ({ match }) => {
       setVisible(10)
       if (response.success) {
         await setVisible(6)
-        setSuccessAdd("تم تعديل تصنيف بنجاح")
+        setSuccessAdd("Category has been edited successfully")
 
         setRefresh(!refresh)
 
@@ -192,12 +192,12 @@ const CategoryUpdate = ({ match }) => {
             <CRow className=" row-gap-15">
 
               <CCol md="6" lg="6" xl="6" className="justify-content-center align-self-center align-items-center place-items-center text-capitalize">
-                <strong> تعديل تصنيف </strong>
+                <strong> Update Category</strong>
               </CCol>
               <CCol md="6" lg="6" xl="6" className='row-gap-15 col-gap-15'>
 
                 <CButton color="success" className='col-lg-6  col-md-6 col-sm-12 col-xs-12 updatebtn'
-                  onClick={() => history.goBack()} > رجوع
+                  onClick={() => history.goBack()} > Back
                 </CButton>
 
               </CCol>
@@ -213,18 +213,18 @@ const CategoryUpdate = ({ match }) => {
                       <CRow >
 
 
-                        <CCol md='12'> <strong>معلومات التصنيف</strong></CCol>
+                        <CCol md='12'> <strong> Category Information</strong></CCol>
                         <CCol md="6" lg="6" xl="6">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">الاسم الانكليزي</CLabel>
+                              <CLabel htmlFor="text-input"> English Name</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
                               <CInput name="name_en"
                                 required
                                 onChange={handleData}
-                                placeholder={`الاسم الانكليزي`}
+                                placeholder={`English Name`}
                                 value={upData.name_en} />
                             </CCol>
                           </CFormGroup>
@@ -232,14 +232,14 @@ const CategoryUpdate = ({ match }) => {
                         <CCol md="6" lg="6" xl="6">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">{`الاسم العربي`}</CLabel>
+                              <CLabel htmlFor="text-input">{'Arabic Name'}</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
                               <CInput name="name_ar"
                                 required
                                 onChange={handleData}
-                                placeholder={`الاسم العربي`}
+                                placeholder={'Arabic Name'}
                                 value={upData.name_ar} />
                             </CCol>
                           </CFormGroup>
@@ -292,7 +292,7 @@ const CategoryUpdate = ({ match }) => {
 
                         <CCol md="6" lg="6" xl="6" xs="12" sm="12" >
                           {<CButton color="success" block type='submit'>
-                            حفظ  {loading && <>{' '}<i className="fa fa-spinner fa-spin" ></i></>} </CButton>}
+                            Save  {loading && <>{' '}<i className="fa fa-spinner fa-spin" ></i></>} </CButton>}
                         </CCol>
 
                       </CRow>

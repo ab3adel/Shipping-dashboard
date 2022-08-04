@@ -158,11 +158,10 @@ const AddNewPage = (props) => {
         }
       );
       const response = await responsee.json();
-      console.log('response', response);
-      console.log(response);
+
       if (response.success) {
 
-        setSuccessAdd("تم اضافة صفحة جديدة بنجاح")
+        setSuccessAdd("New page has been added successfully")
         // setRefresh(!refresh)
         setVisible(5)
         setUpData({ title_ar: '', title_en: '', })
@@ -185,19 +184,11 @@ const AddNewPage = (props) => {
 
 
   }
-  console.log('p', dataText)
-  console.log('dataTextArabic', dataTextArabic)
+
   return (
     <div className="c-app c-default-layout flex-row align-items-center register-cont">
 
       <CContainer>
-
-
-
-
-
-
-
 
         <CCard className="">
 
@@ -207,13 +198,13 @@ const AddNewPage = (props) => {
             <CRow className=" row-gap-15">
 
               <CCol md="6" lg="6" xl="6" className="justify-content-center align-self-center align-items-center place-items-center text-capitalize">
-                <strong>إضافة صفحة جديدة</strong>
+                <strong>Add New Page</strong>
               </CCol>
 
               <CCol md="6" lg="6" xl="6" className='row-gap-15 col-gap-15'>
 
                 <CButton color="success" className='col-lg-6  col-md-6 col-sm-12 col-xs-12 updatebtn'
-                  onClick={() => history.goBack()} >  رجوع
+                  onClick={() => history.goBack()} >  Back
                 </CButton>
 
               </CCol>
@@ -225,14 +216,14 @@ const AddNewPage = (props) => {
                 <CCol md="6" lg="6" xl="6">
                   <CFormGroup row>
                     <CCol md="12">
-                      <CLabel htmlFor="text-input"> الاسم الانكليزي</CLabel>
+                      <CLabel htmlFor="text-input">English Name</CLabel>
                     </CCol>
                     <CCol xs="12" md="12">
 
                       <CInput name="title_en"
                         required
                         onChange={handleData}
-                        placeholder="الاسم الانكليزي"
+                        placeholder="English Name"
                         value={upData.title_en} />
                     </CCol>
                   </CFormGroup>
@@ -240,14 +231,14 @@ const AddNewPage = (props) => {
                 <CCol md="6" lg="6" xl="6">
                   <CFormGroup row>
                     <CCol md="12">
-                      <CLabel htmlFor="text-input">الاسم العربي</CLabel>
+                      <CLabel htmlFor="text-input">Arabic Name</CLabel>
                     </CCol>
                     <CCol xs="12" md="12">
 
                       <CInput name="title_ar"
                         required
                         onChange={handleData}
-                        placeholder="الاسم العربي"
+                        placeholder="Arabic Name"
                         value={upData.title_ar} />
                     </CCol>
                   </CFormGroup>
@@ -259,7 +250,7 @@ const AddNewPage = (props) => {
               <CRow className="justify-content-center" style={{ direction: 'ltr' }}>
                 <CCol md="12" lg="12" xl="12">
 
-                  <h5>المحتوى الانكليزي</h5>
+                  <h5>English Cntent</h5>
                 </CCol>
 
                 <CCol md="12" lg="12" xl="12">
@@ -277,7 +268,7 @@ const AddNewPage = (props) => {
               <CRow className="justify-content-center" style={{ direction: 'ltr' }}>
                 <CCol md="12" lg="12" xl="12" style={{ direction: 'rtl' }}>
 
-                  <h5>المحتوى العربي</h5>
+                  <h5>Arabic Cntent</h5>
                 </CCol>
 
                 <CCol md="12" lg="12" xl="12">
@@ -336,7 +327,7 @@ const AddNewPage = (props) => {
                 }
 
                 <CCol md="6" lg="6" xl="6" xs="12" sm="12" >
-                  <CButton color="success" block type='submit'>حفظ
+                  <CButton color="success" block type='submit'>Save
                     {loading && <>{' '}<i className="fa fa-spinner fa-spin" ></i></>} </CButton>
                 </CCol>
 

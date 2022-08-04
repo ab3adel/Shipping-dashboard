@@ -177,8 +177,7 @@ const Cities = () => {
         }
       );
       const response = await responsee.json();
-      console.log('response', response);
-      console.log(response);
+
       if (response.success == true && response.payload) {
         setSmall(false)
         document.getElementById('root').style.opacity = 1;
@@ -259,7 +258,7 @@ const Cities = () => {
                                 <TextField
                                   required
                                   {...params}
-                                  label={"اختر دولة"}
+                                  label={"Choose Country"}
                                   inputProps={{
                                     ...params.inputProps,
                                     autoComplete: 'off', // disable autocomplete and autofill
@@ -286,7 +285,11 @@ const Cities = () => {
 
                 <CDataTable
                   items={cities}
-                  fields={['id', 'الاسم الانكليزي', "الاسم العربي", "الرمز", "عمليات"]}
+                  fields={['id',
+                  { label: "Arabic Name", key: 'الاسم العربي' },
+                  { label: "English Name", key: 'الاسم الانكليزي' },
+                  {label:"Code",key:"الرمز"},
+                  { label: "Actions", key: 'عمليات' }]}
                   hover
                   striped
                   pagination
@@ -347,7 +350,7 @@ const Cities = () => {
           <CModalTitle>{i18n.language == 'ar' ? "حذف مدينة" : "Delete City"}</CModalTitle>
         </CModalHeader>
         <CModalBody>
-          {`هل انت متأكد أنك تريد حذف مدينة (${itemToDelete.name_en})`}
+          {`Are you sure you want to delete City (${itemToDelete.name_en})`}
 
         </CModalBody>
         <CModalFooter>

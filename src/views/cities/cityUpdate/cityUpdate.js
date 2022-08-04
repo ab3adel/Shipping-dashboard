@@ -147,12 +147,11 @@ const CityUpdate = ({ match }) => {
         }
       );
       const response = await responsee.json();
-      console.log('response', response);
-      console.log(response);
+
       setVisible(10)
       if (response.success) {
         await setVisible(6)
-        setSuccessAdd("تم تعديل مدينة بنجاح")
+        setSuccessAdd("City has been updated successfully")
 
         setRefresh(!refresh)
 
@@ -219,14 +218,14 @@ const CityUpdate = ({ match }) => {
                         <CCol md="6" lg="6" xl="6">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">{`الاسم الانكليزي`}</CLabel>
+                              <CLabel htmlFor="text-input">{`English Name`}</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
                               <CInput name="name_en"
                                 required
                                 onChange={handleData}
-                                placeholder={`الاسم الانكليزي`}
+                                placeholder={`English Name`}
                                 value={upData.name_en} />
                             </CCol>
                           </CFormGroup>
@@ -234,14 +233,14 @@ const CityUpdate = ({ match }) => {
                         <CCol md="6" lg="6" xl="6">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">{`الاسم العربي`}</CLabel>
+                              <CLabel htmlFor="text-input">{`Arabic Name`}</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
                               <CInput name="name_ar"
 
                                 onChange={handleData}
-                                placeholder={`الاسم العربي`}
+                                placeholder={`Arabic Name`}
                                 value={upData.name_ar} />
                             </CCol>
                           </CFormGroup>
@@ -249,14 +248,14 @@ const CityUpdate = ({ match }) => {
                         <CCol md="6" lg="6" xl="6">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">{`رمز المدينة`}</CLabel>
+                              <CLabel htmlFor="text-input">{`City Code`}</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
                               <CInput name="code"
 
                                 onChange={handleData}
-                                placeholder={`رمز المدينة`}
+                                placeholder={`City Code`}
                                 value={upData.code} />
                             </CCol>
                           </CFormGroup>

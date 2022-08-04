@@ -74,7 +74,7 @@ const PakageTypes = () => {
         );
         const response = await responsee.json();
         // console.log('response',response);
-        console.log('faqs', response);
+
         if (response.success) {
           let temp = []
 
@@ -159,8 +159,7 @@ const PakageTypes = () => {
         }
       );
       const response = await responsee.json();
-      console.log('response', response);
-      console.log(response);
+
       if (response.success == true && response.payload) {
         setSmall(!small)
         document.getElementById('root').style.opacity = 1;
@@ -187,13 +186,13 @@ const PakageTypes = () => {
             <CCardHeader>
               <CRow className=" row-gap-15">
                 <CCol md="6" lg="6" xl="6" className="justify-content-center align-self-center align-items-center place-items-center text-capitalize">
-                  أنواع التغليف
+                 Packaging Types
                 </CCol>
 
                 <CCol md="6" lg="6" xl="6" className='row-gap-15 col-gap-15'>
 
                   <CButton color="success" className='col-lg-6  col-md-6 col-sm-12 col-xs-12 updatebtn'
-                    onClick={() => history.push('/Packages/AddNewPakageType')} > اضافة نوع جديد
+                    onClick={() => history.push('/Packages/AddNewPakageType')} > Add New Type
                   </CButton>
 
                 </CCol>
@@ -204,7 +203,10 @@ const PakageTypes = () => {
             <CCardBody className='usersTabel'>
               {data && <CDataTable
                 items={data}
-                fields={['id', 'الاسم العربي', 'الاسم الانكليزي', 'الوزن المسموح', 'عمليات']}
+                fields={['id', {label:'Arabic Name',key:'الاسم العربي'}
+                               , {label:"English Name",key:'الاسم الانكليزي'}
+                               , {label:'Allowed Weight',key:'الوزن المسموح'}
+                               , {label:'Actions',key:'عمليات'}]}
                 hover
                 striped
                 pagination
@@ -246,14 +248,14 @@ const PakageTypes = () => {
         size="sm"
         color='danger'>
         <CModalHeader closeButton>
-          <CModalTitle> حذف نوع</CModalTitle>
+          <CModalTitle> Delete Type</CModalTitle>
         </CModalHeader>
         <CModalBody>
-          {`هل انت متأكد أنك تريد حذف نوع تغليف (${itemToDelete.name_ar})`}
+          {`Are you sure you want to delete the packaging type${itemToDelete.name_en})`}
         </CModalBody>
         <CModalFooter>
-          <CButton color="danger" onClick={() => handleDelete()}>حذف</CButton>{' '}
-          <CButton color="secondary" onClick={() => setSmall(!small)}>الغاء</CButton>
+          <CButton color="danger" onClick={() => handleDelete()}>Delete</CButton>{' '}
+          <CButton color="secondary" onClick={() => setSmall(!small)}>Cancel</CButton>
         </CModalFooter>
       </CModal>
 

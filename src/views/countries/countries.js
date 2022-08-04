@@ -74,7 +74,7 @@ const Countries = () => {
         );
         const response = await responsee.json();
         // console.log('response',response);
-        console.log('faqs', response);
+
         if (response.success) {
           let temp = []
 
@@ -90,9 +90,9 @@ const Countries = () => {
               'الاسم العربي': item.country_name_ar ? item.country_name_ar : "-",
               'الاسم الانكليزي': item.country_name_en,
               'رمز العملة': item.currency_symbol,
-              'الرمز البريدي': item.postal_aware == 0 ? "غير مطلوب" : "مطلوب",
-              'رمز المحافظة': item.state_or_province == 0 ? "غير مطلوب" : "مطلوب",
-              'الحالة': item.active == 0 ? "عير فعال" : "فعال",
+              'الرمز البريدي': item.postal_aware == 0 ? "Unrequired" : "Required",
+              'رمز المحافظة': item.state_or_province == 0 ? " Unrequired" : "Required",
+              'الحالة': item.active == 0 ? "Inactive" : "Active",
 
 
 
@@ -217,7 +217,14 @@ const Countries = () => {
             <CCardBody className='usersTabel'>
               {data && <CDataTable
                 items={data}
-                fields={['id', "الرمز", 'الاسم العربي', 'الاسم الانكليزي', 'الحالة', 'الرمز البريدي', 'رمز المحافظة', 'عمليات']}
+                fields={['id',
+                 {label:"Code",key:"الرمز"},
+                 { label: "Arabic Name", key: 'الاسم العربي' },
+                  { label: "English Name", key: 'الاسم الانكليزي' },
+                  , {label:"Status",key:'الحالة'},
+                  { label:"Postal Code",key:'الرمز البريدي'}
+                  , {label:"Province Code",key:'رمز المحافظة'}
+                  , {label:"Actions",key:'عمليات'}]}
                 hover
                 striped
                 pagination
@@ -262,14 +269,14 @@ const Countries = () => {
         size="sm"
         color='danger'>
         <CModalHeader closeButton>
-          <CModalTitle> حذف دولة</CModalTitle>
+          <CModalTitle>Country Delete</CModalTitle>
         </CModalHeader>
         <CModalBody>
-          {`هل انت متأكد أنك تريد حذف دولة (${itemToDelete.country_name_ar})`}
+          {`Are you sure you want to delete the country(${itemToDelete.country_name_en})`}
         </CModalBody>
         <CModalFooter>
-          <CButton color="danger" onClick={() => handleDelete()}>حذف</CButton>{' '}
-          <CButton color="secondary" onClick={() => setSmall(!small)}>الغاء</CButton>
+          <CButton color="danger" onClick={() => handleDelete()}>Delete</CButton>{' '}
+          <CButton color="secondary" onClick={() => setSmall(!small)}>Cancel</CButton>
         </CModalFooter>
       </CModal>
 

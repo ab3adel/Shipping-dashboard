@@ -210,7 +210,7 @@ const ConatctUs = () => {
       if (response.success) {
         // setDataText("")
         setActiveItem(activeItem)
-        setSuccessAdd("تم ارسال الرد بنجاح")
+        setSuccessAdd("Reply has been sent successfully")
         setRefresh(!refresh)
         setVisible(5)
       }
@@ -254,7 +254,7 @@ const ConatctUs = () => {
         <CCol xl={12}>
           <CCard>
             <CCardHeader>
-              <CCol md='12'><strong>الرسائل</strong></CCol>
+              <CCol md='12'><strong>Messages</strong></CCol>
               {/*
               <CCol md="4" lg="4" xl="4" >
 
@@ -273,7 +273,14 @@ const ConatctUs = () => {
             <CCardBody className='usersTabel'>
               {data.length > 0 && <CDataTable
                 items={data}
-                fields={['id', "الاسم", 'الإيميل', 'الشركة', 'الموضوع', 'الرسالة', 'التاريخ', 'عمليات']}
+                fields={['id'
+                , {label:"Name",key:"الاسم"}
+                , {label:"Email",key:'الإيميل'},
+                {label:'Company',key:'الشركة'},
+               { label:'Subject',key:'الموضوع'},
+                {label:'Message',key:'الرسالة'},
+                { label:"History",key:'التاريخ'}
+                , {label:"Actions",key:'عمليات'}]}
                 hover
                 striped
                 sorter
@@ -289,16 +296,16 @@ const ConatctUs = () => {
                       <td>
                         <CBadge className="p-1 m-1 badg-click" color="danger"
                           onClick={() => handleShowModal(item)}
-                        > حذف   </CBadge>
+                        > Delete   </CBadge>
                         <br />
                         <CBadge className="p-1  m-1 badg-click" color={item.seen ? "success" : "secondary"}
                           style={{ cursor: item.seen ? 'pointer' : "auto" }}
                           onClick={() => handleSeen(item.id)}>
-                          {item.seen ? "تمت المشاهدة" : "شاهد"}</CBadge>
+                          {item.seen ? "Viewed" : "View"}</CBadge>
                         <br />
                         <CBadge className="p-1  m-1 badg-click" color="info"
                           onClick={() => handleSetItemToreplay(item)}  >
-                          ارسال رد</CBadge>
+                          Send Reply</CBadge>
                         <br />
 
                       </td>
@@ -325,13 +332,13 @@ const ConatctUs = () => {
         onClose={closeModal}
       >
         <CModalHeader closeButton>
-          <CModalTitle>ارسال رد</CModalTitle>
+          <CModalTitle>Send Reply</CModalTitle>
         </CModalHeader>
         <CModalBody>
           <CRow  >
-            <CCol md="12">الرسالة :</CCol>
+            <CCol md="12">Message :</CCol>
             <CCol md="12">{activeItem.message}</CCol>
-            <CCol md="12">الرد :</CCol>
+            <CCol md="12">Reply :</CCol>
             {activeItem.message != '' && <ReplayForm setDataText={setDataText} dataText={dataText} />}
           </CRow>
           <CRow className="justify-content-center">
@@ -382,11 +389,11 @@ const ConatctUs = () => {
         </CModalBody>
         <CModalFooter>
 
-          <CButton color="primary" onClick={(e) => { handleReplay(e) }} >ارسال {loading && <>{' '}<i className="fa fa-spinner fa-spin" ></i></>}</CButton>{' '}
+          <CButton color="primary" onClick={(e) => { handleReplay(e) }} >Send {loading && <>{' '}<i className="fa fa-spinner fa-spin" ></i></>}</CButton>{' '}
           <CButton
             color="secondary"
             onClick={() => closeModal()}
-          >الغاء</CButton>
+          >Cancel</CButton>
         </CModalFooter>
       </CModal>
 
@@ -402,14 +409,14 @@ const ConatctUs = () => {
         size="sm"
         color='danger'>
         <CModalHeader closeButton>
-          <CModalTitle> حذف رسالة</CModalTitle>
+          <CModalTitle> Delete Message</CModalTitle>
         </CModalHeader>
         <CModalBody>
-          {`هل انت متأكد أنك تريد حذف رسالة من (${itemToDelete.name})`}
+          {`Are you sure you want to delete message (${itemToDelete.name})`}
         </CModalBody>
         <CModalFooter>
-          <CButton color="danger" onClick={() => handleDelete()}>حذف</CButton>{' '}
-          <CButton color="secondary" onClick={() => setSmall(!small)}>الغاء</CButton>
+          <CButton color="danger" onClick={() => handleDelete()}>Delete</CButton>{' '}
+          <CButton color="secondary" onClick={() => setSmall(!small)}>Cancel</CButton>
         </CModalFooter>
       </CModal>
 

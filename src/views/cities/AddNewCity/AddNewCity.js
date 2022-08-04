@@ -169,7 +169,7 @@ const AddNewCity = () => {
       setVisible(10)
       if (response.success) {
         await setVisible(6)
-        setSuccessAdd("تمت اضافة مدينة بنجاح")
+        setSuccessAdd("City has been added successfully")
 
 
         setUpData({
@@ -212,7 +212,7 @@ const AddNewCity = () => {
             <CRow className=" row-gap-15">
 
               <CCol md="6" lg="6" xl="6" className="justify-content-center align-self-center align-items-center place-items-center text-capitalize">
-                <strong>  إضافة مدينة جديدة </strong>
+                <strong>  Add New City</strong>
               </CCol>
               <CCol md="6" lg="6" xl="6" className='row-gap-15 col-gap-15'>
 
@@ -235,20 +235,20 @@ const AddNewCity = () => {
 
                         {/* className="justify-content-center" */}
 
-                        <CCol md='12'> <strong>  معلومات المدبنة : </strong></CCol>
+                        <CCol md='12'> <strong>  City Information:</strong></CCol>
 
 
                         <CCol md="6" lg="6" xl="6">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">{`الاسم الانكليزي`}</CLabel>
+                              <CLabel htmlFor="text-input">{`English Name`}</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
                               <CInput name="name_en"
                                 required
                                 onChange={handleData}
-                                placeholder={`الاسم الانكليزي`}
+                                placeholder={`English Name`}
                                 value={upData.name_en} />
                             </CCol>
                           </CFormGroup>
@@ -256,14 +256,14 @@ const AddNewCity = () => {
                         <CCol md="6" lg="6" xl="6">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">{`الاسم العربي`}</CLabel>
+                              <CLabel htmlFor="text-input">{`Arabic Name`}</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
                               <CInput name="name_ar"
 
                                 onChange={handleData}
-                                placeholder={`الاسم العربي`}
+                                placeholder={`Arabic Name`}
                                 value={upData.name_ar} />
                             </CCol>
                           </CFormGroup>
@@ -272,7 +272,7 @@ const AddNewCity = () => {
 
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">{`الدولة`}</CLabel>
+                              <CLabel htmlFor="text-input">{`Country`}</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
                               <CacheProvider value={cacheRtl}>
@@ -308,7 +308,7 @@ const AddNewCity = () => {
                                         <TextField
                                           required
                                           {...params}
-                                          label={"اختر دولة"}
+                                          label={"Choose Country"}
                                           inputProps={{
                                             ...params.inputProps,
                                             autoComplete: 'off', // disable autocomplete and autofill
@@ -331,14 +331,14 @@ const AddNewCity = () => {
                         <CCol md="6" lg="6" xl="6">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">{`رمز المدينة`}</CLabel>
+                              <CLabel htmlFor="text-input">{`City Code`}</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
                               <CInput name="code"
 
                                 onChange={handleData}
-                                placeholder={`رمز المدينة`}
+                                placeholder={`City Code`}
                                 value={upData.code} />
                             </CCol>
                           </CFormGroup>
