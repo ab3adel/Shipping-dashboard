@@ -153,7 +153,7 @@ const UserUpdate = ({ match }) => {
       setVisible(10)
       if (response.success) {
         await setVisible(6)
-        setSuccessAdd("تم تعديل مستخدم بنجاح")
+        setSuccessAdd("User updated successfully")
 
         setRefresh(!refresh)
 
@@ -221,18 +221,18 @@ const UserUpdate = ({ match }) => {
 
                         {/* className="justify-content-center" */}
 
-                        <CCol md='12'> <strong>معلومات الحساب </strong></CCol>
+                        <CCol md='12'> <strong>   Account Information </strong></CCol>
                         <CCol md="6" lg="6" xl="6">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">الاسم</CLabel>
+                              <CLabel htmlFor="text-input">Name</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
                               <CInput name="userName"
                                 required
                                 onChange={handleData}
-                                placeholder={`الاسم`}
+                                placeholder={`Name`}
                                 value={upData.userName} />
                             </CCol>
                           </CFormGroup>
@@ -242,7 +242,7 @@ const UserUpdate = ({ match }) => {
                         <CCol md="6" lg="6" xl="6">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">{`البريد الالكتروني`}</CLabel>
+                              <CLabel htmlFor="text-input">{`Email`}</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
@@ -250,7 +250,7 @@ const UserUpdate = ({ match }) => {
 
                                 type='email'
                                 onChange={handleData}
-                                placeholder={`البريد الالكتروني`}
+                                placeholder={`Email`}
                                 value={upData.email} />
                             </CCol>
                           </CFormGroup>
@@ -258,7 +258,7 @@ const UserUpdate = ({ match }) => {
                         <CCol md="3" lg="3" xl="3">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">نسبة الربح</CLabel>
+                              <CLabel htmlFor="text-input">   {`Profit Percentage`}</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
@@ -266,7 +266,7 @@ const UserUpdate = ({ match }) => {
                                 required
                                 type='number' min='0' max='100'
                                 onChange={handleData}
-                                placeholder={`نسبة الربح`}
+                                placeholder={`Profit Percentage`}
                                 value={upData.profit_percentage} />
                             </CCol>
                           </CFormGroup>
@@ -274,7 +274,7 @@ const UserUpdate = ({ match }) => {
                         <CCol md="3" lg="3" xl="3">
                           <CFormGroup row>
                             <CCol md="12">
-                              <CLabel htmlFor="text-input">قيمة ربح ثابتة مضافة</CLabel>
+                              <CLabel htmlFor="text-input">{`Fixed Profit Value`}</CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
 
@@ -282,7 +282,7 @@ const UserUpdate = ({ match }) => {
                                 required
                                 type='number' min='0'
                                 onChange={handleData}
-                                placeholder={`قيمة ثابتة مضافة`}
+                                placeholder={`Fixed Profit Value`}
                                 value={upData.fixed_profit_value} />
                             </CCol>
                           </CFormGroup>
@@ -292,15 +292,15 @@ const UserUpdate = ({ match }) => {
                           <CFormGroup row>
                             <CCol md="12">
                               <CLabel htmlFor="text-input">
-                                نوع الحساب </CLabel>
+                                Account Type  </CLabel>
                             </CCol>
                             <CCol xs="12" md="12">
                               <CSelect custom name="role" id="select"
                                 required value={upData.role} onChange={(e) => handleData(e)}>
-                                <option value='' >اختر</option>
+                                <option value='' >Select</option>
 
-                                <option value='1'>مدير</option>
-                                <option value='0'>مستخدم عادي</option>
+                                <option value='1'>Admin</option>
+                                <option value='0'>Normal User</option>
 
 
                               </CSelect>
@@ -350,7 +350,7 @@ const UserUpdate = ({ match }) => {
 
                         <CCol md="6" lg="6" xl="6" xs="12" sm="12" >
                           {<CButton color="success" block type='submit'>
-                            حفظ
+                            Save
                             {loading && <>{' '}<i className="fa fa-spinner fa-spin" ></i></>} </CButton>}
                         </CCol>
 

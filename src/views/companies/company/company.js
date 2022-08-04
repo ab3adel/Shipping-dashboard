@@ -197,7 +197,7 @@ const Company = ({ match }) => {
       console.log(response);
       if (response.success) {
 
-        setSuccessAdd("تمت اضافة تصنيف الى الشركة بنجاح")
+        setSuccessAdd("Category has been added to the company successfully.")
         setRefresh(!refresh)
         setCategory('')
         setVisible(7)
@@ -289,15 +289,15 @@ const Company = ({ match }) => {
                 <CRow className=" row-gap-15">
 
                   <CCol md="6" lg="6" xl="6" className="justify-content-center align-self-center align-items-center place-items-center text-capitalize">
-                    <strong>{fetchedData.name_ar}</strong>
+                    <strong>{fetchedData.name_en}</strong>
                   </CCol>
 
                   <CCol md="6" lg="6" xl="6" className='row-gap-15 col-gap-15'>
                     <CButton color="info" className='col-lg-3  col-md-3 col-sm-6 col-xs-6 updatebtn'
-                      onClick={() => setPageStatus(1)} > تعديل
+                      onClick={() => setPageStatus(1)} > Update
                     </CButton>
                     <CButton color="success" className='col-lg-6  col-md-6 col-sm-12 col-xs-12 updatebtn'
-                      onClick={() => history.goBack()} > رجوع
+                      onClick={() => history.goBack()} > Back
                     </CButton>
 
                   </CCol>
@@ -317,7 +317,7 @@ const Company = ({ match }) => {
                                 <CRow className="">
 
                                   <CCol md="6" lg="6" xl="6" >
-                                    <strong> اضافة تصنيف </strong>
+                                    <strong>Add Category</strong>
                                   </CCol>
 
                                 </CRow>
@@ -341,11 +341,11 @@ const Company = ({ match }) => {
 
                                             required value={category} onChange={(e) => setCategory(e.target.value)}  >
                                             <option value='' >
-                                              اختر تصنيف
+                                              Select Category
                                             </option>
                                             {categories.length > 0 && categories.map((cat) => {
                                               return (<option value={cat.id} key={cat.id}>
-                                                {cat.name_ar}
+                                                {cat.name_en}
                                               </option>)
                                             })}
 
@@ -360,7 +360,7 @@ const Company = ({ match }) => {
                                     <CCol md="4" lg="4" xl="4" className='mr-t' >
                                       {/* className=" row-gap-15 col-gap-15 " */}
                                       <CButton color="success" className='col-12' type='submit'
-                                      > إضافة   {loading && <>{' '}<i className="fa fa-spinner fa-spin" ></i></>}
+                                      > Add   {loading && <>{' '}<i className="fa fa-spinner fa-spin" ></i></>}
                                         {/* className='col-lg-2  col-md-2 col-sm-12 col-xs-12 ' */}
                                       </CButton>
 
@@ -417,7 +417,7 @@ const Company = ({ match }) => {
 
                               {fetchedData.categories && fetchedData.categories.length > 0 &&
                                 <CCardFooter className="p-4"> <CRow md='12' >
-                                  <CCol md='12'> <strong>التصنيفات</strong> </CCol>
+                                  <CCol md='12'> <strong>Categories</strong> </CCol>
                                   {
 
                                     fetchedData.categories.length > 0 && fetchedData.categories.map((cat, index) => {
@@ -427,17 +427,17 @@ const Company = ({ match }) => {
 
 
                                           <ul className=" card list-group list-group-flush">
-                                            <li className="list-group-item arabic-align">
-                                              <strong>اسم عربي :{' '}</strong> {cat.name_ar}
+                                            <li className="list-group-item  ">
+                                              <strong>Arabic Name :{' '}</strong> {cat.name_ar}
                                               <br />
-                                              <strong>  اسم انكليزي :  {' '}</strong>  {cat.name_en}</li>
+                                              <strong>   English Name :  {' '}</strong>  {cat.name_en}</li>
                                             {/* <CCol xs="12" md="12"> */}
 
 
                                             <CButton color="secondary" className='col-lg-12 col-md-12 col-sm-12 col-xs-12 '
                                               onClick={() => handleShow(cat)}
                                               style={{ borderRadius: '0' }} >
-                                              إزلة التصنيف
+                                              Remove
                                             </CButton>
 
                                             {/* </CCol> */}
@@ -458,14 +458,14 @@ const Company = ({ match }) => {
                                 color='danger'
                               >
                                 <CModalHeader closeButton>
-                                  <CModalTitle>  إزالة تصنيف </CModalTitle>
+                                  <CModalTitle>Remove Category</CModalTitle>
                                 </CModalHeader>
                                 <CModalBody>
-                                  {`هل انت متأكد أنك تريد حذف تنصيف من الشركة (  ${itemToDelete.name_ar} )`}
+                                  {`Are you sure you want to delete a category from the company (  ${itemToDelete.name_en} )`}
                                 </CModalBody>
                                 <CModalFooter>
-                                  <CButton color="danger" onClick={() => handleDelete()}>حذف </CButton>{' '}
-                                  <CButton color="secondary" onClick={() => setSmall(!small)}>الغاء</CButton>
+                                  <CButton color="danger" onClick={() => handleDelete()}>Remove</CButton>{' '}
+                                  <CButton color="secondary" onClick={() => setSmall(!small)}>Cancel</CButton>
                                 </CModalFooter>
                               </CModal>
 
@@ -484,7 +484,7 @@ const Company = ({ match }) => {
                               <li className="list-group-item"><strong>{i18n.language == 'ar' ? `اسم انكليزي :` : `English Name :`}
 
                                 {' '}</strong>  {fetchedData.name_en}</li>
-                              <li className="list-group-item arabic-align"><strong>اسم عربي :{' '}</strong> {fetchedData.name_ar}</li>
+                              <li className="list-group-item  "><strong>Arabic Name :{' '}</strong> {fetchedData.name_ar}</li>
                             </ul>
 
 
@@ -492,7 +492,7 @@ const Company = ({ match }) => {
                           <CCol className=' p-1' md='6'>
                             <ul className=" card list-group list-group-flush">
                               <li className="list-group-item">
-                                <strong> الشعار   </strong>
+                                <strong> Logo   </strong>
                                 <img className='detLogo' src={global.apiUrl + fetchedData.logo} /></li>
 
                             </ul>

@@ -152,7 +152,7 @@ const UpdateCat = ({ customer, setRefresh, refresh }) => {
             console.log(response);
             setVisible(10)
             if (response.success) {
-                setSuccessAdd("تمت اضافة تصنيف الى  الزبون بنجاح")
+                setSuccessAdd("Category has been added successfully")
                 setRefresh(!refresh)
                 setCategory('')
                 setVisible(7)
@@ -232,167 +232,168 @@ const UpdateCat = ({ customer, setRefresh, refresh }) => {
 
     return (
         <CRow>
-            <CCol xs="12" sm="12" md="12" className=''>         <CCol xs="12" sm="12" md="12" className=''>
-                <CCard>
-                    <CCardHeader>
-                        <CRow className="">
+            <CCol xs="12" sm="12" md="12" className=''>
+                <CCol xs="12" sm="12" md="12" className=''>
+                    <CCard>
+                        <CCardHeader>
+                            <CRow className="">
 
-                            <CCol md="6" lg="6" xl="6" >
-                                <strong> اضافة تصنيف </strong>
-                            </CCol>
+                                <CCol md="6" lg="6" xl="6" >
+                                    <strong>Add Category</strong>
+                                </CCol>
 
-                        </CRow>
+                            </CRow>
 
-                    </CCardHeader>
-                    <CCardBody className=''>
+                        </CCardHeader>
+                        <CCardBody className=''>
 
-                        <CForm onSubmit={(e) => { handleAddToCat(e) }}  >
-                            <CRow className="justify-content-center" >
+                            <CForm onSubmit={(e) => { handleAddToCat(e) }}  >
+                                <CRow className="justify-content-center" >
 
-                                <CCol md="8" lg="8" xl="8">
+                                    <CCol md="8" lg="8" xl="8">
 
-                                    <CFormGroup row>
-                                        {/* <CCol md="1">
+                                        <CFormGroup row>
+                                            {/* <CCol md="1">
                 <CLabel htmlFor="text-input">
                   
                 </CLabel>
               </CCol> */}
-                                        <CCol xs="10" md="10">
-                                            <CSelect custom name="country_id"
+                                            <CCol xs="10" md="10">
+                                                <CSelect custom name="country_id"
 
-                                                required value={category} onChange={(e) => setCategory(e.target.value)}  >
-                                                <option value='' >
-                                                    اختر تصنيف
-                                                </option>
-                                                {categories.length > 0 && categories.map((cat) => {
-                                                    return (<option value={cat.id} key={cat.id}>
-                                                        {cat.name_ar}
-                                                    </option>)
-                                                })}
+                                                    required value={category} onChange={(e) => setCategory(e.target.value)}  >
+                                                    <option value='' >
+                                                        اختر تصنيف
+                                                    </option>
+                                                    {categories.length > 0 && categories.map((cat) => {
+                                                        return (<option value={cat.id} key={cat.id}>
+                                                            {cat.name_ar}
+                                                        </option>)
+                                                    })}
 
-                                            </CSelect>
-                                        </CCol>
-                                    </CFormGroup>
+                                                </CSelect>
+                                            </CCol>
+                                        </CFormGroup>
 
-                                </CCol>
+                                    </CCol>
 
 
 
-                                <CCol md="4" lg="4" xl="4" className='mr-t' >
-                                    {/* className=" row-gap-15 col-gap-15 " */}
-                                    <CButton color="success" className='col-12' type='submit'
-                                    > إضافة   {loading && <>{' '}<i className="fa fa-spinner fa-spin" ></i></>}
-                                        {/* className='col-lg-2  col-md-2 col-sm-12 col-xs-12 ' */}
-                                    </CButton>
+                                    <CCol md="4" lg="4" xl="4" className='mr-t' >
+                                        {/* className=" row-gap-15 col-gap-15 " */}
+                                        <CButton color="success" className='col-12' type='submit'
+                                        > إضافة   {loading && <>{' '}<i className="fa fa-spinner fa-spin" ></i></>}
+                                            {/* className='col-lg-2  col-md-2 col-sm-12 col-xs-12 ' */}
+                                        </CButton>
 
-                                </CCol>
+                                    </CCol>
 
-                            </CRow>
-                        </CForm>
-                    </CCardBody>
-                    {/* <CCardFooter className="p-4"> */}
-                    <CRow className="justify-content-center">
+                                </CRow>
+                            </CForm>
+                        </CCardBody>
+                        {/* <CCardFooter className="p-4"> */}
+                        <CRow className="justify-content-center">
 
-                        <CCol md='12' >
                             <CCol md='12' >
+                                <CCol md='12' >
 
-                                {errorMessage &&
+                                    {errorMessage &&
 
 
-                                    <CAlert className='col-lg-12  col-md-12 col-sm-12 col-xs-12 '
-                                        color="danger"
+                                        <CAlert className='col-lg-12  col-md-12 col-sm-12 col-xs-12 '
+                                            color="danger"
+                                            // closeButton
+                                            show={visible}
+                                            // closeButton
+                                            onShowChange={setVisible}
+                                        >
+                                            {Object.keys(errorMessage).map((item, i) => (<>{errorMessage[item]}<br /></>))}
+                                        </CAlert>
+
+                                    }
+
+
+
+
+                                    {succesAdd &&
+
+
+                                        <CAlert className='col-lg-12  col-md-12 col-sm-12 col-xs-12 '
+                                            color="success"
+                                            show={visible}
+                                            // closeButton
+                                            onShowChange={setVisible}
                                         // closeButton
-                                        show={visible}
-                                        // closeButton
-                                        onShowChange={setVisible}
-                                    >
-                                        {Object.keys(errorMessage).map((item, i) => (<>{errorMessage[item]}<br /></>))}
-                                    </CAlert>
+                                        >
+                                            {succesAdd}
+                                        </CAlert>
+                                    }
+                                </CCol>
 
-                                }
-
-
-
-
-                                {succesAdd &&
-
-
-                                    <CAlert className='col-lg-12  col-md-12 col-sm-12 col-xs-12 '
-                                        color="success"
-                                        show={visible}
-                                        // closeButton
-                                        onShowChange={setVisible}
-                                    // closeButton
-                                    >
-                                        {succesAdd}
-                                    </CAlert>
-                                }
                             </CCol>
 
-                        </CCol>
-
-                    </CRow>
+                        </CRow>
 
 
-                    {customer.categories && customer.categories.length > 0 &&
-                        <CCardFooter className="p-4"> <CRow md='12' >
-                            <CCol md='12'> <strong>التصنيفات</strong> </CCol>
-                            {
+                        {customer.categories && customer.categories.length > 0 &&
+                            <CCardFooter className="p-4"> <CRow md='12' >
+                                <CCol md='12'> <strong>التصنيفات</strong> </CCol>
+                                {
 
-                                customer.categories.length > 0 && customer.categories.map((cat, index) => {
-                                    return (
+                                    customer.categories.length > 0 && customer.categories.map((cat, index) => {
+                                        return (
 
-                                        <CCol key={cat.id} md='6' >
-
-
-                                            <ul className=" card list-group list-group-flush">
-                                                <li className="list-group-item arabic-align">
-                                                    <strong>اسم عربي :{' '}</strong> {cat.name_ar}
-                                                    <br />
-                                                    <strong>  اسم انكليزي :  {' '}</strong>  {cat.name_en}</li>
-                                                {/* <CCol xs="12" md="12"> */}
+                                            <CCol key={cat.id} md='6' >
 
 
-                                                <CButton color="secondary" className='col-lg-12 col-md-12 col-sm-12 col-xs-12 '
-                                                    onClick={() => handleShow(cat)}
-                                                    style={{ borderRadius: '0' }} >
-                                                    إزلة التصنيف
-                                                </CButton>
+                                                <ul className=" card list-group list-group-flush">
+                                                    <li className="list-group-item arabic-align">
+                                                        <strong>اسم عربي :{' '}</strong> {cat.name_ar}
+                                                        <br />
+                                                        <strong>  اسم انكليزي :  {' '}</strong>  {cat.name_en}</li>
+                                                    {/* <CCol xs="12" md="12"> */}
 
-                                                {/* </CCol> */}
-                                            </ul>
 
-                                        </CCol>
+                                                    <CButton color="secondary" className='col-lg-12 col-md-12 col-sm-12 col-xs-12 '
+                                                        onClick={() => handleShow(cat)}
+                                                        style={{ borderRadius: '0' }} >
+                                                        إزلة التصنيف
+                                                    </CButton>
+
+                                                    {/* </CCol> */}
+                                                </ul>
+
+                                            </CCol>
 
 
 
-                                    )
-                                })}
-                        </CRow> </CCardFooter>}
+                                        )
+                                    })}
+                            </CRow> </CCardFooter>}
 
-                    <CModal
-                        show={small}
-                        onClose={() => setSmall(!small)}
-                        size="sm"
-                        color='danger'
-                    >
-                        <CModalHeader closeButton>
-                            <CModalTitle>  إزالة تصنيف </CModalTitle>
-                        </CModalHeader>
-                        <CModalBody>
-                            {`هل انت متأكد أنك تريد حذف تصنيف الزبون (  ${itemToDelete.name_ar} )`}
-                        </CModalBody>
-                        <CModalFooter>
-                            <CButton color="danger" onClick={() => handleDelete()}>حذف </CButton>{' '}
-                            <CButton color="secondary" onClick={() => setSmall(!small)}>الغاء</CButton>
-                        </CModalFooter>
-                    </CModal>
+                        <CModal
+                            show={small}
+                            onClose={() => setSmall(!small)}
+                            size="sm"
+                            color='danger'
+                        >
+                            <CModalHeader closeButton>
+                                <CModalTitle>  إزالة تصنيف </CModalTitle>
+                            </CModalHeader>
+                            <CModalBody>
+                                {`هل انت متأكد أنك تريد حذف تصنيف الزبون (  ${itemToDelete.name_ar} )`}
+                            </CModalBody>
+                            <CModalFooter>
+                                <CButton color="danger" onClick={() => handleDelete()}>حذف </CButton>{' '}
+                                <CButton color="secondary" onClick={() => setSmall(!small)}>الغاء</CButton>
+                            </CModalFooter>
+                        </CModal>
 
-                </CCard>
+                    </CCard>
 
 
 
-            </CCol>       </CCol>
+                </CCol>       </CCol>
 
 
         </CRow>

@@ -242,7 +242,10 @@ const Categories = () => {
             <CCardBody className='usersTabel'>
               {data && <CDataTable
                 items={data}
-                fields={['id', 'الاسم العربي', 'الاسم الانكليزي', 'عمليات']}
+                fields={['id',
+                  { label: "Arabic Name", key: 'الاسم العربي' },
+                  { label: "English Name", key: 'الاسم الانكليزي' },
+                  { label: "Actions", key: 'عمليات' }]}
                 hover
                 striped
                 pagination

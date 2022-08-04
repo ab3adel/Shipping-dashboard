@@ -97,10 +97,10 @@ const Companies = () => {
               "الاسم الانكليزي": item.name_en,
 
               "التصنيف": item.categories.length > 0 ? item.categories.map((cat, index) => {
-                return (cat.name_ar)
+                return (cat.name_en)
               })
                 :
-                "غير مصنف"
+                "No Category"
 
 
             })
@@ -200,12 +200,12 @@ const Companies = () => {
               <CRow className="justify-content-center row-gap-15 ">
 
                 <CCol md="6" lg="6" xl="6" className="justify-content-center align-self-center align-items-center place-items-center text-capitalize">
-                  الشركات
+                  Categories
                 </CCol>
                 <CCol md="6" lg="6" xl="6" className=" row-gap-15 col-gap-15 ">
                   <CButton color="success" className='col-lg-6  col-md-6 col-sm-12 col-xs-12 updatebtn'
                     onClick={() => history.push('/companies/AddNewCompany')} >
-                    إضافة شركة
+                    Add New Category
                   </CButton>
 
                 </CCol>
@@ -221,7 +221,12 @@ const Companies = () => {
 
                       {data && <CDataTable
                         items={data}
-                        fields={['id', 'الاسم العربي', 'الاسم الانكليزي', 'التصنيف', 'الشعار', 'عمليات']}
+                        fields={['id', { label: "Arabic Name", key: 'الاسم العربي' },
+                          { label: "English Name", key: 'الاسم الانكليزي' },
+                          { label: "Category", key: 'التصنيف' },
+                          { label: "Logo", key: 'الشعار' },
+                          { label: "Actions", key: 'عمليات' },
+                        ]}
                         hover
                         striped
                         pagination
@@ -299,14 +304,14 @@ const Companies = () => {
         color='danger'
       >
         <CModalHeader closeButton>
-          <CModalTitle>{i18n.language == 'ar' ? "حذف شركة" : "Delete Company"}</CModalTitle>
+          <CModalTitle>{i18n.language == 'ar' ? "Delete Company" : "Delete Company"}</CModalTitle>
         </CModalHeader>
         <CModalBody>
-          {`هل انت متأكد أنك تريد حذف شركة (  ${itemToDelete.name_ar} )`}
+          {`Are you sure you want to delete a company(  ${itemToDelete.name_en} )`}
         </CModalBody>
         <CModalFooter>
-          <CButton color="danger" onClick={() => handleDelete()}>حذف </CButton>{' '}
-          <CButton color="secondary" onClick={() => setSmall(!small)}>الغاء</CButton>
+          <CButton color="danger" onClick={() => handleDelete()}>Delete </CButton>{' '}
+          <CButton color="secondary" onClick={() => setSmall(!small)}>Cancel</CButton>
         </CModalFooter>
       </CModal>
     </div>
